@@ -38,7 +38,8 @@ export const Burger = styled.ul`
     isOpen
       ? "rotate(45deg) scaleX(1.1)"
       : "rotate(45deg) translateX(-3px) translateY(7px) scaleX(0.8)"};
-   box-shadow:  ${({ isOpen }) => (isOpen ? "0px 0px  2px 1px" : "3px 3px  2px 1px")};
+   box-shadow:  ${({ isOpen }) =>
+     isOpen ? "0px 0px  2px 1px" : "3px 3px  2px 1px"};
   }
 
 &:hover .third {
@@ -46,7 +47,8 @@ export const Burger = styled.ul`
     isOpen
       ? "rotate(-45deg) translateY(-7px) translateX(7px) scaleX(1.1)"
       : "rotate(-45deg) translateY(-1px) translateX(10px) scaleX(0.8)"};
-  box-shadow:  ${({ isOpen }) => (isOpen ? "0px 0px   2px 1px" : "-3px 3px  2px 1px")}; 
+  box-shadow:  ${({ isOpen }) =>
+    isOpen ? "0px 0px   2px 1px" : "-3px 3px  2px 1px"}; 
   }
  
 @media (min-width: 768px) {

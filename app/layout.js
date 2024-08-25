@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { MenuMobile } from "../components/Header/MenuMobile/MenuMobile.js";
+import { MenuComponent } from "../components/Header/Menu/Menu.js";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         </div>
         <div>
           
-              <MenuMobile/>
+              <MenuComponent/>
         
 
               <main>{children}</main>
