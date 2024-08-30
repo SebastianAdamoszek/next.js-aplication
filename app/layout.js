@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { MenuComponent } from "../components/Header/Menu/Menu.js";
+// import { MenuComponent } from "../components/Header/Menu/Menu.js";
+import { HeaderComponent } from "../components/Header/Header.js";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
@@ -23,11 +24,11 @@ export default function RootLayout({ children }) {
           />
         </div>
         <div>
-          
-              <MenuComponent/>
+          <HeaderComponent/>
         
 
-              <main>{children}</main>
+
+          <main>{children}</main>
 
           <div className={styles.center}>
             <Image

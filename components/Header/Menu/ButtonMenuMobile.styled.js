@@ -50,15 +50,11 @@ export const Burger = styled.ul`
   box-shadow:  ${({ isOpen }) =>
     isOpen ? "0px 0px   2px 1px" : "-3px 3px  2px 1px"}; 
   }
- 
-@media (min-width: 768px) {
-  & {
-    display: none;
-  }
-   
+  
   @media (min-width: 768px) {
   & {
-    display: none;
+    // display: none;
+    visibility: hidden;
   }
 `;
 

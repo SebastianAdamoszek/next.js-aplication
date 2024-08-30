@@ -22,7 +22,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{" "}
+              {" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"

@@ -4,54 +4,48 @@ export const Menu = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: auto;
-  z-index: 100;
-  background-color: rgb(12, 38, 124);
-  padding: 5px 0;
 `;
 export const Nav = styled.ul`
-  
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')}; 
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   flex-direction: column;
   gap: 10px;
   width: 100%;
   background-color: rgb(12, 38, 124);
   position: absolute;
-  top: 50px;
+  top: 70px;
   left: 0;
   padding: 15px;
-    animation: delay 0.5s ease-in-out;
-      @keyframes delay  {
-       0% {
-          color: rgba(0,0,0,0);
-          background-color: rgba(12, 38, 124, 0.5);
+  animation: delay 0.5s ease-in-out;
+  @keyframes delay {
+    0% {
+      color: rgba(0, 0, 0, 0);
+      background-color: rgba(12, 38, 124, 0.5);
+    }
+    100% {
+      color: auto;
+    }
+  }
 
-          }
-        100% {
-         color: auto;
-          }
-      }
-     
-    @media (min-width: 768px) {
-    top: 0;
+  @media (min-width: 768px) {
+    position: static;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    width: auto;
     gap: 15px;
-    padding: 20px 0;
-    margin: 0 auto;
-      animation: delay 1s ease-in-out;
-        @keyframes delay  {
-         0% {
-             color: rgba(0,0,0,0);
-            }
-         100% {
-             color: auto;
-            }
+    margin: 0 0 0 100px;
+    background-color: inherit;
+
+    animation: delay 1s ease-in-out;
+    @keyframes delay {
+      0% {
+        color: rgba(0, 0, 0, 0);
       }
+      100% {
+        color: auto;
+      }
+    }
   }
 `;
+
