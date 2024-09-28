@@ -17,12 +17,10 @@ export const Nav = styled.ul`
   left: 0;
   padding: 15px;
   z-index: -1;
-
   color: auto;
-  font-size: 0px;
   transform: translateY(-100%);
   opacity: 0;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
 
   ${({ isOpen }) =>
     isOpen &&
