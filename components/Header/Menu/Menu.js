@@ -42,7 +42,6 @@ export const MenuComponent = () => {
             <p>Gallery</p>
           </Link>
         </li>
-        <div></div>
       </Nav>
     </Menu>
   );
