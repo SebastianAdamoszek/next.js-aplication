@@ -17,14 +17,15 @@ export const Nav = styled.ul`
   padding: 15px;
   z-index: -1;
 
-  animation: delay 0.5s ease-in-out;
-  @keyframes delay {
+  animation: slide-down 0.5s ease-in-out;
+  @keyframes slide-down {
     0% {
       color: rgba(0, 0, 0, 0);
       background-color: rgba(12, 38, 124, 0.5);
       transform: translateY(-150px);
+      font-size: 0px;
     }
-    75% {
+    90% {
       color: rgba(0, 0, 0, 0);
     }
     100% {
@@ -43,9 +44,9 @@ export const Nav = styled.ul`
     margin: 0 0 0 100px;
     background-color: inherit;
     z-index: 0;
-    
-    animation: delay 1s ease-in-out;
-    @keyframes delay {
+
+    animation: show-font 1s ease-in-out;
+    @keyframes show-font {
       0% {
         color: rgba(0, 0, 0, 0);
       }
