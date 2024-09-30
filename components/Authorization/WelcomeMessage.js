@@ -1,4 +1,3 @@
-// components/WelcomeMessage.js
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
 
@@ -16,7 +15,7 @@ export const WelcomeMessage = ({ email }) => {
     <div>
       <h2>Witaj w aplikacji!</h2>
       <p>Użytkownik: {email}</p>
-      <button onClick={handleLogout}>Wyloguj</button> {/* Przycisk wylogowania */}
+      <button onClick={handleLogout}>Wyloguj</button>
     </div>
   );
 };

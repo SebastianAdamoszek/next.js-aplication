@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-// import { MenuComponent } from "../components/Header/Menu/Menu.js";
 import { HeaderComponent } from "../components/Header/Header.js";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -24,19 +23,16 @@ export default function RootLayout({ children }) {
           />
         </div>
         <div>
-          <HeaderComponent/>    
+          <HeaderComponent />
 
-
-          <main>{children}</main>         
+          <main>{children}</main>
 
           <footer>
-            
             <ul className={styles.footer}>
               <li>
                 <p>Footer Content</p>
               </li>
             </ul>
-            
           </footer>
         </div>
       </body>

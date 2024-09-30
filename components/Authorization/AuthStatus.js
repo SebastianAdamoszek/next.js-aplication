@@ -1,9 +1,8 @@
-// components/AuthStatus.js
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
-import { WelcomeMessage } from "../WelcomeMessage/WelcomeMessage";
-import { AuthForm } from "../AuthForm/AuthForm";
+import { WelcomeMessage } from "./WelcomeMessage";
+import { AuthForm } from "./AuthForm";
 
 export const AuthStatus = () => {
   const [user, setUser] = useState(null);

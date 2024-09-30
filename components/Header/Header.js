@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Header, HeaderIcons } from "./Header.styled.js";
 import { MenuComponent } from "./Menu/Menu.js";
-import { AuthStatus } from "../AuthStatus/AuthStatus.js";
+import { AuthStatus } from "../Authorization/AuthStatus.js";
 import Link from "next/link";
 
 export const HeaderComponent = () => {
