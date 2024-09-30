@@ -49,4 +49,5 @@
   position: fixed;
   bottom: 0;
   background-color: #6200ff;
+  z-index: 100;
 }
