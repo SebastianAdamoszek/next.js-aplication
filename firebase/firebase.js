@@ -1,11 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+// Opcjonalnie: import Firebase Analytics, jeśli potrzebujesz
 import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Twoja konfiguracja Firebase z Firebase Console
 const firebaseConfig = {
   apiKey: "AIzaSyAHTtVwXcmT2aDo9tI_sn3Xek3v2R7q_S8",
   authDomain: "addfirebasetonextjs.firebaseapp.com",
@@ -16,30 +16,14 @@ const firebaseConfig = {
   measurementId: "G-950CM3QF9L"
 };
 
-// Initialize Firebase
+// Inicjalizacja Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
+// Jeśli potrzebujesz Firebase Analytics, możesz go zainicjalizować
+const analytics = getAnalytics(app);  // Opcjonalnie
 
+// Inicjalizacja Firebase Authentication i Firestore
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-
-// // firebase.js
-// import { initializeApp } from "firebase/app";
-// import { getAuth } from "firebase/auth";
-// import { getFirestore } from "firebase/firestore";
-
-// const firebaseConfig = {
-//   apiKey: "YOUR_API_KEY",
-//   authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-//   projectId: "YOUR_PROJECT_ID",
-//   storageBucket: "YOUR_PROJECT_ID.appspot.com",
-//   messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-//   appId: "YOUR_APP_ID",
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
-// const db = getFirestore(app);
-
-// export { auth, db };
+export { auth, db };
