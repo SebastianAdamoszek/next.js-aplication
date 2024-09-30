@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import { collection, addDoc, query, orderBy, onSnapshot } from "firebase/firestore";
-import { db, auth } from "../../firebase/firebase"; // Zakładam, że masz odpowiednio skonfigurowane Firebase
+import { useEffect, useState } from "react";
+import { collection, addDoc, query, orderBy, onSnapshot, setDoc, doc } from "firebase/firestore";
+import { db, auth } from "../../firebase/firebase";
 
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
+  const user = auth.currentUser; // Pobieramy aktualnego użytkownika
 
   useEffect(() => {
     // Pobieranie wiadomości w czasie rzeczywistym z Firestore
@@ -22,13 +23,14 @@ const Chat = () => {
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
-    if (message.trim() === "") return;
+    if (message.trim() === "" || !user) return; // Sprawdź, czy użytkownik jest zalogowany
 
     try {
-      await addDoc(collection(db, "messages"), {
+      await setDoc(doc(db, 'messages', `${Date.now()}_${user.uid}`), {
         text: message,
-        userId: auth.currentUser.uid, // Id użytkownika
+        userId: user.uid, // Id użytkownika
         timestamp: new Date(),
+        username: user.email, // Użyj adresu e-mail jako nazwy użytkownika
       });
       setMessage(""); // Resetuj pole tekstowe
     } catch (error) {
@@ -40,8 +42,8 @@ const Chat = () => {
     <div>
       <div className="chat-window">
         {messages.map((msg) => (
-          <div key={msg.id} className={`message ${msg.userId === auth.currentUser.uid ? "my-message" : "other-message"}`}>
-            <p>{msg.text}</p>
+          <div key={msg.id} className={`message ${msg.userId === user.uid ? "my-message" : "other-message"}`}>
+            <p><strong>{msg.username}:</strong> {msg.text}</p> {/* Wyświetl nazwę użytkownika i wiadomość */}
           </div>
         ))}
       </div>
