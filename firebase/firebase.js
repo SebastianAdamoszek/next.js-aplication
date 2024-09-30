@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -18,24 +17,23 @@ const firebaseConfig = {
 // Inicjalizacja Firebase
 const app = initializeApp(firebaseConfig);
 
-// Warunkowa inicjalizacja Analytics
-isSupported().then((supported) => {
-  if (supported) {
-    const analytics = getAnalytics(app);
-    console.log("Firebase Analytics został zainicjowany.");
-  } else {
-    console.log("Firebase Analytics nie jest wspierany w tym środowisku.");
-  }
-});
-
-// Jeśli potrzebujesz Firebase Analytics, możesz go zainicjalizować
-const analytics = getAnalytics(app);  // Opcjonalnie
+// Inicjalizacja Firebase Analytics (tylko po stronie klienta)
+if (typeof window !== "undefined") {
+  isSupported().then((supported) => {
+    if (supported) {
+      getAnalytics(app);
+    } else {
+      console.log("Firebase Analytics nie jest wspierany w tym środowisku.");
+    }
+  });
+}
 
 // Inicjalizacja Firebase Authentication i Firestore
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 export { auth, db };
+
 
 
 
