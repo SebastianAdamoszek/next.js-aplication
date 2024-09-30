@@ -43,10 +43,10 @@ export const AuthForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">{isLogin ? 'Zaloguj się' : 'Zarejestruj'}</button>
+        <button type="submit">{isLogin ? 'Zaloguj' : 'Zarejestruj'}</button>
       </form>
       <button onClick={() => setIsLogin(!isLogin)}>
-        {isLogin ? 'Nie masz konta? Zarejestruj się' : 'Masz już konto? Zaloguj się'}
+        {isLogin ? 'Rejestracja' : 'Logowanie'}
       </button>
     </div>
   );

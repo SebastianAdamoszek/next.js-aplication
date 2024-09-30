@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Header, HeaderIcons } from "./Header.styled.js";
 import { MenuComponent } from "./Menu/Menu.js";
+import { AuthStatus } from "../AuthStatus/AuthStatus.js";
 import Link from "next/link";
-import { AuthForm } from "../AuthForm/AuthForm.js";
 
 export const HeaderComponent = () => {
   return (
     <Header>
       <MenuComponent />
-      <AuthForm/>
+      <AuthStatus />
+
       <HeaderIcons>
         <Link href="https://www.facebook.com/" target="_blank">
           <svg width="30" height="20" fill="#505050" aria-hidden="true">

@@ -24,29 +24,19 @@ export default function RootLayout({ children }) {
           />
         </div>
         <div>
-          <HeaderComponent/>
-        
+          <HeaderComponent/>    
 
 
-          <main>{children}</main>
-
-          <div className={styles.center}>
-            <Image
-              className={styles.logo}
-              src="/next.svg"
-              alt="Next.js Logo"
-              width={180}
-              height={37}
-              priority
-            />
-          </div>
+          <main>{children}</main>         
 
           <footer>
+            
             <ul className={styles.footer}>
               <li>
                 <p>Footer Content</p>
               </li>
             </ul>
+            
           </footer>
         </div>
       </body>
