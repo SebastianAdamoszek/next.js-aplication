@@ -11,9 +11,13 @@ export const ChatPageContainer = styled.div`
   border-radius: 8px;
   z-index: 1000;
   cursor: grab;
+
+  @media (max-width: 768px) {
+    transform: scale(0.6);
+  }
 `;
 
 export const GuestChatContainer = styled.div`
-    padding: 5px;
-    text-align: center;
-`
+  padding: 5px;
+  text-align: center;
+`;
