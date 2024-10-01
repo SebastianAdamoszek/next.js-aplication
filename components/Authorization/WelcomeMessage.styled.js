@@ -3,17 +3,18 @@ import styled from "styled-components";
 export const Container = styled.div`
   //   border: 1px solid rgba(100, 10, 10, 1);
   border-radius: 50%;
-  background-color: rgba(100, 100, 100, 0.6);
+  background-color: rgba(100, 100, 100, 0.2);
   width: 50px;
   height: 50px;
   padding: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
 `;
 export const TextTitle = styled.span`
-  font-size: 10px;
+  font-size: 8px;
+
 `;
 export const TextUser = styled.span`
   font-size: 8px;
@@ -31,3 +32,4 @@ export const LogOut = styled.span`
     color: rgba(100, 10, 10, 1);
   }
 `;
+

@@ -22,6 +22,16 @@ export const ChatPageContainer = styled.div`
     transform: scale(0.6);
   }
 `;
+
+export const Title = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    padding: 0 3px;
+  }
+`;
+
 export const HideChatButton = styled.button`
   position: absolute;
   top: -40px;

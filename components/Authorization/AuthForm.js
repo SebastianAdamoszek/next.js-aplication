@@ -5,7 +5,11 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { AuthFormContainer } from "./AuthForm.styled";
+import {
+  AuthFormContainer,
+  HideFormButton,
+  MinimizedFormButton,
+} from "./AuthForm.styled";
 
 export const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true); // Przełączanie między logowaniem a rejestracją
@@ -30,37 +34,57 @@ export const AuthForm = () => {
       console.error("Błąd podczas logowania/rejestracji", error);
     }
   };
+  const [zoomOut, setIsMinimized] = useState(false);
+
+  // Funkcja minimalizowania okna
+  const toggleMinimize = () => {
+    setIsMinimized(!zoomOut);
+  };
 
   // Formularz jest widoczny tylko jeśli użytkownik nie jest zalogowany
   return (
-    <AuthFormContainer signOut={!!user}>
-      <div>
-        <h2>{isLogin ? "Log in" : "Register"}</h2>
-      </div>
+    <>
+      {!zoomOut && (
+        <AuthFormContainer signOut={!!user}>
+          <HideFormButton onClick={toggleMinimize}>⬇️</HideFormButton>{" "}
+          <div>
+            <h2>{isLogin ? "Log in" : "Register"}</h2>
+          </div>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="email"
+                placeholder="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <input
+                type="password"
+                placeholder="Hasło"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button type="submit">
+                {isLogin ? "Zaloguj" : "Zarejestruj"}
+              </button>
+            </form>
+          </div>
+          <button onClick={() => setIsLogin(!isLogin)}>
+            {isLogin ? "Rejestracja" : "Logowanie"}
+          </button>
+        </AuthFormContainer>
+      )}
 
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="E-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Hasło"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit">{isLogin ? "Zaloguj" : "Zarejestruj"}</button>
-        </form>
-      </div>
-
-      <button onClick={() => setIsLogin(!isLogin)}>
-        {isLogin ? "Rejestracja" : "Logowanie"}
-      </button>
-    </AuthFormContainer>
+      {zoomOut && (
+        <MinimizedFormButton
+          onClick={toggleMinimize}
+          title="Formularz rejestracji i logowania"
+        >
+          📝
+        </MinimizedFormButton>
+      )}
+    </>
   );
 };
