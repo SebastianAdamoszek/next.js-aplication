@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { HeaderComponent } from "../components/Header/Header.js";
+import { HeaderComponent } from "@/components/Header/Header.js";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import styles from "./layout.module.css";
-import ChatPage from "@/components/Chat/ChatPage.js";
+import {ChatPage} from "@/components/Chat/ChatPage.js";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,13 +25,12 @@ export default function RootLayout({ children }) {
         </div>
         <div>
           <HeaderComponent />
+          <ChatPage/>
 
           <main>{children}</main>
           <footer>
             <ul className={styles.footer}>
               <li>
-              <ChatPage/>
-
                 <p>Footer Content</p>
               </li>
             </ul>

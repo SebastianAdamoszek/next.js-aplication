@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { collection, addDoc, query, orderBy, onSnapshot, setDoc, doc } from "firebase/firestore";
 import { db, auth } from "../../firebase/firebase";
 
-const Chat = () => {
+export const Chat = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const user = auth.currentUser; // Pobieramy aktualnego użytkownika
@@ -60,4 +60,3 @@ const Chat = () => {
   );
 };
 
-export default Chat;

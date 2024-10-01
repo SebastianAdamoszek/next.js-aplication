@@ -9,7 +9,6 @@ export const HeaderComponent = () => {
     <Header>
       <MenuComponent />
       <AuthStatus />
-
       <HeaderIcons>
         <Link href="https://www.facebook.com/" target="_blank">
           <svg width="30" height="20" fill="#505050" aria-hidden="true">

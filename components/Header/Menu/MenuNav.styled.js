@@ -67,4 +67,8 @@ export const Nav = styled.ul`
       }
     }
   }
+
+  @media (min-width: 1200px) {
+    margin: 0 300px 0 100px;
+  }
 `;
