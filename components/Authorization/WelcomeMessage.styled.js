@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  //   border: 1px solid rgba(100, 10, 10, 1);
   border-radius: 50%;
   background-color: rgba(100, 100, 100, 0.6);
   width: 50px;
@@ -9,6 +10,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: end;
 `;
 export const TextTitle = styled.span`
   font-size: 10px;
