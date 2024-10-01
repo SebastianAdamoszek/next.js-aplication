@@ -11,9 +11,10 @@ export const IconButton = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: 0.2s ease-in-out;  
+  transition: 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.03);
+    background-color: rgba(100, 100, 100, 0.8);
   }
 `;

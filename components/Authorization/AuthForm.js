@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { auth } from "../../firebase/firebase";
+import { useAuthState } from "react-firebase-hooks/auth"; // Importowanie hooka z firebase
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -10,6 +11,7 @@ export const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true); // Przełączanie między logowaniem a rejestracją
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user] = useAuthState(auth); // Hook do monitorowania stanu zalogowania użytkownika
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,8 +31,9 @@ export const AuthForm = () => {
     }
   };
 
+  // Formularz jest widoczny tylko jeśli użytkownik nie jest zalogowany
   return (
-    <AuthFormContainer>
+    <AuthFormContainer signOut={!!user}>
       <div>
         <h2>{isLogin ? "Log in" : "Register"}</h2>
       </div>

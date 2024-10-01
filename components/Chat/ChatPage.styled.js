@@ -17,7 +17,7 @@ export const ChatPageContainer = styled.div`
     0% {
       transform: scale(0.2);
     }
- 
+  }
   @media (max-width: 768px) {
     transform: scale(0.6);
   }

@@ -19,7 +19,7 @@ export const ChatPage = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
-        setPosition({ top: "0px", left: "-20px" });
+        setPosition({ top: "65px", left: "-20px" });
       } else {
         setPosition({ top: "90px", left: "30px" });
       }

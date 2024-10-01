@@ -6,9 +6,6 @@ import "./globals.css";
 import Image from "next/image";
 import styles from "./layout.module.css";
 import { ChatPage } from "@/components/Chat/ChatPage.js";
-import { AuthForm } from "@/components/Authorization/AuthForm";
-import { AuthStatus } from "@/components/Authorization/AuthStatus";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +26,6 @@ export default function RootLayout({ children }) {
         <div>
           <HeaderComponent />
           <ChatPage/>
-          <AuthForm />
 
           <main>{children}</main>
           <footer>

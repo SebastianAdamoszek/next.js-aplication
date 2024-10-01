@@ -2,6 +2,7 @@ import React from "react";
 import { Header, HeaderIcons } from "./Header.styled.js";
 import { MenuComponent } from "./Menu/Menu.js";
 import { AuthStatus } from "../Authorization/AuthStatus.js";
+import { AuthForm } from "../Authorization/AuthForm.js";
 import Link from "next/link";
 
 export const HeaderComponent = () => {
@@ -9,6 +10,7 @@ export const HeaderComponent = () => {
     <Header>
       <MenuComponent />
       <AuthStatus />
+      <AuthForm />
       <HeaderIcons>
         <Link href="https://www.facebook.com/" target="_blank">
           <svg width="30" height="20" fill="#505050" aria-hidden="true">
