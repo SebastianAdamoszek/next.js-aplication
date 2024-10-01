@@ -12,10 +12,15 @@ export const ChatPageContainer = styled.div`
   z-index: 1000;
   cursor: grab;
 
+  animation: incrase 0.5s ease-in-out;
+  @keyframes incrase {
+    0% {
+      transform: scale(0.2);
+    }
+ 
   @media (max-width: 768px) {
     transform: scale(0.6);
   }
-
 `;
 export const HideChatButton = styled.button`
   position: absolute;
@@ -32,16 +37,34 @@ export const HideChatButton = styled.button`
 
 export const MinimizedChatButton = styled.button`
   position: fixed;
-  bottom: 50px;
+  bottom: 30px;
   right: 20px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: lightblue;
+  background-color: rgba(70, 0, 250, 0.8);
   border: none;
   z-index: 1000;
   font-size: 24px;
   cursor: pointer;
+  transition: 0.25s ease-in-out;
+
+  animation: slide 0.5s ease-in-out;
+  @keyframes slide {
+    0% {
+      bottom: 400px;
+      right: 200px;
+      transform: scale(0.2);
+    }
+    80% {
+      bottom: 200px;
+      right: 20px;
+    }
+  }
+
+  &:hover {
+    background-color: rgba(70, 60, 250, 1);
+  }
 `;
 
 export const GuestChatContainer = styled.div`
