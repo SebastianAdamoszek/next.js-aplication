@@ -1,11 +1,15 @@
-import { useState } from 'react';
-import { auth } from '../../firebase/firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { useState } from "react";
+import { auth } from "../../firebase/firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { AuthFormContainer } from "./AuthForm.styled";
 
 export const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true); // Przełączanie między logowaniem a rejestracją
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,28 +30,34 @@ export const AuthForm = () => {
   };
 
   return (
-    <div>
-      <h2>{isLogin ? 'Logowanie' : 'Rejestracja'}</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="E-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Hasło"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">{isLogin ? 'Zaloguj' : 'Zarejestruj'}</button>
-      </form>
+    <AuthFormContainer>
+      <div>
+        <h2>{isLogin ? "Log in" : "Register"}</h2>
+      </div>
+
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Hasło"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">{isLogin ? "Zaloguj" : "Zarejestruj"}</button>
+        </form>
+      </div>
+
       <button onClick={() => setIsLogin(!isLogin)}>
-        {isLogin ? 'Rejestracja' : 'Logowanie'}
+        {isLogin ? "Rejestracja" : "Logowanie"}
       </button>
-    </div>
+    </AuthFormContainer>
   );
 };
