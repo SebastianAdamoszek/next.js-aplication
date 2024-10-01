@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/firebase";
 import { Chat } from "./Chat";
@@ -8,7 +8,27 @@ export const ChatPage = () => {
   const [user, loading] = useAuthState(auth);
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [position, setPosition] = useState({ top: "90px", left: "50px" });
+  const [position, setPosition] = useState({ top: "90px", left: "30px" });
+
+  // Ustaw pozycję w zależności od szerokości okna
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setPosition({ top: "0px", left: "-20px" });
+      } else {
+        setPosition({ top: "90px", left: "30px" });
+      }
+    };
+
+    // Sprawdź rozmiar okna przy montowaniu komponentu
+    handleResize();
+
+    // Dodaj nasłuchiwanie zmiany rozmiaru
+    window.addEventListener("resize", handleResize);
+
+    // Usuń nasłuchiwanie po odmontowaniu komponentu
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   if (loading) {
     return <div>Ładowanie...</div>;
