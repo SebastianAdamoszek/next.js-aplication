@@ -111,7 +111,7 @@ export const ChatPage = () => {
         </ChatPageContainer>
       )}
       {isMinimized && (
-        <MinimizedChatButton onClick={toggleMinimize}>💬</MinimizedChatButton> // Przycisk chatbota w nagłówku
+        <MinimizedChatButton onClick={toggleMinimize}>💬</MinimizedChatButton>
       )}
     </>
   );
