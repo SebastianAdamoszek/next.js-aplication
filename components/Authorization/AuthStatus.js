@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { WelcomeMessage } from "./WelcomeMessage";
-import { AuthForm } from "./AuthForm";
+// import { AuthForm } from "./AuthForm";
+import { OpenFormButton } from "./OpenFormButton";
 
 export const AuthStatus = () => {
   const [user, setUser] = useState(null);
@@ -17,6 +18,6 @@ export const AuthStatus = () => {
   }, []);
 
   return (
-    <div>{user ? <WelcomeMessage email={user.email} /> : <AuthForm />}</div>
+    <div>{user ? <WelcomeMessage email={user.email} /> : <OpenFormButton />}</div>
   );
 };

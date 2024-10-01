@@ -52,7 +52,7 @@ export const MinimizedChatButton = styled.button`
   animation: slide 0.5s ease-in-out;
   @keyframes slide {
     0% {
-      bottom: 400px;
+      bottom: 300px;
       right: 200px;
       transform: scale(0.2);
     }
