@@ -7,7 +7,7 @@ export const Burger = styled.ul`
   border-radius: 50%;
   border: 2px solid darkgrey;
   position: relative;
-  z-index: 110;
+  z-index: 200;
   margin-left: 15px;
   display: flex;
   flex-direction: column;

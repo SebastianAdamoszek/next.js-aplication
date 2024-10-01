@@ -12,10 +12,10 @@ export const Header = styled.div`
   background-color: rgb(12, 38, 124);
   padding: 10px 0;
 
-  // @media (min-width: 768px) {
-  //     justify-content: center;
-
-  // }
+  @media (min-width: 768px) {
+      justify-content: end;
+      gap: 150px;
+  }
 `;
 export const HeaderIcons = styled.div`
   display: flex;

@@ -1,21 +1,24 @@
-import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
+import { Container, TextTitle, TextUser, LogOut } from "./WelcomeMessage.styled";
 
 export const WelcomeMessage = ({ email }) => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      console.log('Użytkownik wylogowany');
+      console.log("Użytkownik wylogowany");
     } catch (error) {
-      console.error('Błąd podczas wylogowania', error);
+      console.error("Błąd podczas wylogowania", error);
     }
   };
 
   return (
-    <div>
-      <h2>Witaj w aplikacji!</h2>
-      <p>Użytkownik: {email}</p>
-      <button onClick={handleLogout}>Wyloguj</button>
-    </div>
+    <Container>
+      <TextTitle>Hi !</TextTitle>
+      <TextUser>{email}</TextUser>
+      <div>
+        <LogOut onClick={handleLogout}>Log out</LogOut>
+      </div>
+    </Container>
   );
 };
