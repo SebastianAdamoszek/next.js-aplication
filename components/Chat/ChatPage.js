@@ -4,9 +4,10 @@ import { auth } from "../../firebase/firebase";
 import { Chat } from "./Chat";
 import {
   ChatPageContainer,
+  Title,
   MinimizedChatButton,
   GuestChatContainer,
-  HideChatButton
+  HideChatButton,
 } from "./ChatPage.styled";
 
 export const ChatPage = () => {
@@ -96,12 +97,14 @@ export const ChatPage = () => {
           onTouchEnd={handleTouchEnd}
         >
           <HideChatButton onClick={toggleMinimize}>⬇️</HideChatButton>{" "}
-          {/* Przycisk minimalizacji */}
           {user ? (
             <>
-              <h3>Witaj, {user.email}</h3>
+              <Title>
+                <h3>Witaj, {user.email}</h3>
+                <button onClick={() => auth.signOut()}>Wyloguj</button>
+              </Title>
+
               <Chat />
-              <button onClick={() => auth.signOut()}>Wyloguj</button>
             </>
           ) : (
             <GuestChatContainer>

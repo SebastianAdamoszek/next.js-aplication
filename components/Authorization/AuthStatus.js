@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { WelcomeMessage } from "./WelcomeMessage";
-import { OpenFormButton } from "./OpenFormButton";
+import { OpenFormButton } from "./Icon";
 
 export const AuthStatus = () => {
   const [user, setUser] = useState(null);

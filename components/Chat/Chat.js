@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
-import { collection, addDoc, query, orderBy, onSnapshot, setDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  onSnapshot,
+  setDoc,
+  doc,
+} from "firebase/firestore";
 import { db, auth } from "../../firebase/firebase";
+import { Container, Messages, UserMes, Form, Input, Button } from "./Chat.styled";
 
 export const Chat = () => {
   const [message, setMessage] = useState("");
@@ -26,7 +35,7 @@ export const Chat = () => {
     if (message.trim() === "" || !user) return; // Sprawdź, czy użytkownik jest zalogowany
 
     try {
-      await setDoc(doc(db, 'messages', `${Date.now()}_${user.uid}`), {
+      await setDoc(doc(db, "messages", `${Date.now()}_${user.uid}`), {
         text: message,
         userId: user.uid, // Id użytkownika
         timestamp: new Date(),
@@ -39,24 +48,32 @@ export const Chat = () => {
   };
 
   return (
-    <div>
-      <div className="chat-window">
+    <Container>
+      <Messages>
         {messages.map((msg) => (
-          <div key={msg.id} className={`message ${msg.userId === user.uid ? "my-message" : "other-message"}`}>
-            <p><strong>{msg.username}:</strong> {msg.text}</p> {/* Wyświetl nazwę użytkownika i wiadomość */}
-          </div>
+          <UserMes
+            key={msg.id}
+            className={`message ${
+              msg.userId === user.uid ? "my-message" : "other-message"
+            }`}
+          >
+            <p>
+              <span>{msg.username} </span>
+              {msg.text}
+            </p>{" "}
+            {/* Wyświetl nazwę użytkownika i wiadomość */}
+          </UserMes>
         ))}
-      </div>
-      <form onSubmit={handleSendMessage}>
-        <input
+      </Messages>
+      <Form onSubmit={handleSendMessage}>
+        <Input
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Napisz wiadomość..."
         />
-        <button type="submit">Wyślij</button>
-      </form>
-    </div>
+        <Button type="submit">Wyślij</Button>
+      </Form>
+    </Container>
   );
 };
-

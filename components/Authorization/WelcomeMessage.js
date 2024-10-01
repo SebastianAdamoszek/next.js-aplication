@@ -1,6 +1,11 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
-import { Container, TextTitle, TextUser, LogOut } from "./WelcomeMessage.styled";
+import {
+  Container,
+  TextTitle,
+  TextUser,
+  LogOut,
+} from "./WelcomeMessage.styled";
 
 export const WelcomeMessage = ({ email }) => {
   const handleLogout = async () => {
@@ -15,10 +20,8 @@ export const WelcomeMessage = ({ email }) => {
   return (
     <Container>
       <TextTitle>Hi !</TextTitle>
-      <TextUser>{email}</TextUser>
-      <div>
+        <TextUser>{email}</TextUser>
         <LogOut onClick={handleLogout}>Log out</LogOut>
-      </div>
     </Container>
   );
 };
