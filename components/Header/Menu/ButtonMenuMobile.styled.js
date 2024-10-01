@@ -16,45 +16,46 @@ export const Burger = styled.ul`
   cursor: pointer;
   transition: 250ms ease-in-out;
 
-   .first {
+  .first {
     transform: ${({ isOpen }) => (isOpen ? "translateY(-100px)" : "")};
   }
-    .second {
-     transform:  ${({ isOpen }) => (isOpen ? "rotate(45deg) scaleX(1.1)" : "")};
-}
-      .third {
-   transform:  ${({ isOpen }) =>
-     isOpen
-       ? "rotate(-45deg) translateY(-7px) translateX(7px) scaleX(1.1)"
-       : ""};
-}
+  .second {
+    transform: ${({ isOpen }) => (isOpen ? "rotate(45deg) scaleX(1.1)" : "")};
+  }
+  .third {
+    transform: ${({ isOpen }) =>
+      isOpen
+        ? "rotate(-45deg) translateY(-7px) translateX(7px) scaleX(1.1)"
+        : ""};
+  }
 
   &:hover .first {
     transform: translateY(-100px) rotate(720deg);
   }
 
- &:hover .second {
-  transform:  ${({ isOpen }) =>
-    isOpen
-      ? "rotate(45deg) scaleX(1.1)"
-      : "rotate(45deg) translateX(-3px) translateY(7px) scaleX(0.8)"};
-   box-shadow:  ${({ isOpen }) =>
-     isOpen ? "0px 0px  2px 1px" : "3px 3px  2px 1px"};
+  &:hover .second {
+    transform: ${({ isOpen }) =>
+      isOpen
+        ? "rotate(45deg) scaleX(1.1)"
+        : "rotate(45deg) translateX(-3px) translateY(7px) scaleX(0.8)"};
+    box-shadow: ${({ isOpen }) =>
+      isOpen ? "0px 0px  2px 1px" : "3px 3px  2px 1px"};
   }
 
-&:hover .third {
-  transform:  ${({ isOpen }) =>
-    isOpen
-      ? "rotate(-45deg) translateY(-7px) translateX(7px) scaleX(1.1)"
-      : "rotate(-45deg) translateY(-1px) translateX(10px) scaleX(0.8)"};
-  box-shadow:  ${({ isOpen }) =>
-    isOpen ? "0px 0px   2px 1px" : "-3px 3px  2px 1px"}; 
+  &:hover .third {
+    transform: ${({ isOpen }) =>
+      isOpen
+        ? "rotate(-45deg) translateY(-7px) translateX(7px) scaleX(1.1)"
+        : "rotate(-45deg) translateY(-1px) translateX(10px) scaleX(0.8)"};
+    box-shadow: ${({ isOpen }) =>
+      isOpen ? "0px 0px   2px 1px" : "-3px 3px  2px 1px"};
   }
-  
+
   @media (min-width: 768px) {
-  & {
-    // display: none;
-    visibility: hidden;
+    & {
+      // display: none;
+      visibility: hidden;
+    }
   }
 `;
 
