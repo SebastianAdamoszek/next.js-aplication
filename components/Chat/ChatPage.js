@@ -33,6 +33,31 @@ export const ChatPage = () => {
     setIsDragging(false);
   };
 
+  // Obsługa dla urządzeń mobilnych - touch start
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    const touch = e.touches[0];
+    setOffset({
+      x: touch.clientX - parseInt(position.left, 10),
+      y: touch.clientY - parseInt(position.top, 10),
+    });
+  };
+
+  // Obsługa dla urządzeń mobilnych - touch move
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    setPosition({
+      top: `${touch.clientY - offset.y}px`,
+      left: `${touch.clientX - offset.x}px`,
+    });
+  };
+
+  // Obsługa dla urządzeń mobilnych - touch end
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
   return (
     <ChatPageContainer
       isLoggedIn={!!user}
