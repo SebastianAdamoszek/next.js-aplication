@@ -2,15 +2,20 @@ import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/firebase";
 import { Chat } from "./Chat";
-import { ChatPageContainer, GuestChatContainer } from "./ChatPage.styled";
+import {
+  ChatPageContainer,
+  MinimizedChatButton,
+  GuestChatContainer,
+  HideChatButton
+} from "./ChatPage.styled";
 
 export const ChatPage = () => {
   const [user, loading] = useAuthState(auth);
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [position, setPosition] = useState({ top: "90px", left: "30px" });
+  const [isMinimized, setIsMinimized] = useState(false);
 
-  // Ustaw pozycję w zależności od szerokości okna
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
@@ -20,19 +25,15 @@ export const ChatPage = () => {
       }
     };
 
-    // Sprawdź rozmiar okna przy montowaniu komponentu
     handleResize();
-
-    // Dodaj nasłuchiwanie zmiany rozmiaru
     window.addEventListener("resize", handleResize);
-
-    // Usuń nasłuchiwanie po odmontowaniu komponentu
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   if (loading) {
     return <div>Ładowanie...</div>;
   }
+
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setOffset({
@@ -53,7 +54,6 @@ export const ChatPage = () => {
     setIsDragging(false);
   };
 
-  // Obsługa dla urządzeń mobilnych - touch start
   const handleTouchStart = (e) => {
     setIsDragging(true);
     const touch = e.touches[0];
@@ -63,7 +63,6 @@ export const ChatPage = () => {
     });
   };
 
-  // Obsługa dla urządzeń mobilnych - touch move
   const handleTouchMove = (e) => {
     if (!isDragging) return;
     const touch = e.touches[0];
@@ -73,34 +72,47 @@ export const ChatPage = () => {
     });
   };
 
-  // Obsługa dla urządzeń mobilnych - touch end
   const handleTouchEnd = () => {
     setIsDragging(false);
   };
 
+  // Funkcja minimalizowania okna
+  const toggleMinimize = () => {
+    setIsMinimized(!isMinimized);
+  };
+
   return (
-    <ChatPageContainer
-      isLoggedIn={!!user}
-      style={{ top: position.top, left: position.left }}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
-      {user ? (
-        <>
-          <h3>Witaj, {user.email}</h3>
-          <Chat />
-          <button onClick={() => auth.signOut()}>Wyloguj</button>
-        </>
-      ) : (
-        <GuestChatContainer>
-          <p>Zaloguj się, aby uzyskać dostęp do czatu</p>
-        </GuestChatContainer>
+    <>
+      {!isMinimized && (
+        <ChatPageContainer
+          isLoggedIn={!!user}
+          style={{ top: position.top, left: position.left }}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <HideChatButton onClick={toggleMinimize}>⬇️</HideChatButton>{" "}
+          {/* Przycisk minimalizacji */}
+          {user ? (
+            <>
+              <h3>Witaj, {user.email}</h3>
+              <Chat />
+              <button onClick={() => auth.signOut()}>Wyloguj</button>
+            </>
+          ) : (
+            <GuestChatContainer>
+              <p>Zaloguj się, aby uzyskać dostęp do czatu</p>
+            </GuestChatContainer>
+          )}
+        </ChatPageContainer>
       )}
-    </ChatPageContainer>
+      {isMinimized && (
+        <MinimizedChatButton onClick={toggleMinimize}>💬</MinimizedChatButton> // Przycisk chatbota w nagłówku
+      )}
+    </>
   );
 };
