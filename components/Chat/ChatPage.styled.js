@@ -15,6 +15,33 @@ export const ChatPageContainer = styled.div`
   @media (max-width: 768px) {
     transform: scale(0.6);
   }
+
+`;
+export const HideChatButton = styled.button`
+  position: absolute;
+  top: -40px;
+  right: 0px;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  text-align: center;
+`;
+
+export const MinimizedChatButton = styled.button`
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: lightblue;
+  border: none;
+  z-index: 1000;
+  font-size: 24px;
+  cursor: pointer;
 `;
 
 export const GuestChatContainer = styled.div`
