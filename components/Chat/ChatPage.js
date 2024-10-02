@@ -14,15 +14,15 @@ export const ChatPage = () => {
   const [user, loading] = useAuthState(auth);
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [position, setPosition] = useState({ top: "90px", left: "30px" });
+  const [position, setPosition] = useState({ top: "170px", left: "1%" });
   const [isMinimized, setIsMinimized] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setPosition({ top: "65px", left: "-20px" });
+      if (window.innerWidth <= 1199) {
+        setPosition({ top: "170px", left: "1%" });
       } else {
-        setPosition({ top: "90px", left: "30px" });
+        setPosition({ top: "170px", left: "15%" });
       }
     };
 

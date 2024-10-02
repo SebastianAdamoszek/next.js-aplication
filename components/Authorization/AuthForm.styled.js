@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const AuthFormContainer = styled.div`
   position: fixed;
-  top: 100px;
-  left: 40%;
+  top: 63px;
+  left: 10%;
   background-color: gray;
   z-index: 1000;
   width: 200px;
@@ -13,15 +13,17 @@ export const AuthFormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  transform: scale(0.6);
   animation: incrase 0.5s ease-in-out;
   @keyframes incrase {
     0% {
       transform: scale(0.2);
     }
   }
-  @media (max-width: 768px) {
-    transform: scale(0.6);
+  @media (min-width: 768px) {
+    transform: scale(1);
+    top: 100px;
+    left: 41%;
   }
 `;
 
@@ -57,11 +59,11 @@ export const MinimizedFormButton = styled.button`
   @keyframes slideForm {
     0% {
       top: 80px;
-      right: 300px;
+      right: 50%;
     }
     80% {
       top: 80px;
-      right: -30px;
+      right: -5%;
     }
   }
 
