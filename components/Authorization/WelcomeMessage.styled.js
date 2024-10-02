@@ -14,10 +14,16 @@ export const Container = styled.div`
 `;
 export const TextTitle = styled.span`
   font-size: 8px;
-
 `;
 export const TextUser = styled.span`
   font-size: 8px;
+  overflow: hidden;
+  width: 50px;
+  // transition: 0.5s ease-in-out;
+  &:hover {
+    width: auto;
+    background-color: rgba(50, 0, 0, 0.5);
+  }
 `;
 export const LogOut = styled.span`
   font-size: 8px;
@@ -32,4 +38,3 @@ export const LogOut = styled.span`
     color: rgba(100, 10, 10, 1);
   }
 `;
-
