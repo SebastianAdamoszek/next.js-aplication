@@ -9,6 +9,7 @@ import {
   AuthFormContainer,
   HideFormButton,
   LogInGoogle,
+  Form,
   MinimizedFormButton,
 } from "./AuthForm.styled";
 import Image from "next/image";
@@ -58,7 +59,7 @@ export const AuthForm = () => {
             <button>Log in with google</button>
           </LogInGoogle>
           <div>
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
               <input
                 type="email"
                 placeholder="E-mail"
@@ -68,18 +69,18 @@ export const AuthForm = () => {
               />
               <input
                 type="password"
-                placeholder="Hasło"
+                placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
               <button type="submit">
-                {isLogin ? "Zaloguj" : "Zarejestruj"}
+                {isLogin ? "Log In" : "Register"}
               </button>
-            </form>
+            </Form>
           </div>
           <button onClick={() => setIsLogin(!isLogin)}>
-            {isLogin ? "Rejestracja" : "Logowanie"}
+            {isLogin ? "Register" : "Log In"}
           </button>
         </AuthFormContainer>
       )}

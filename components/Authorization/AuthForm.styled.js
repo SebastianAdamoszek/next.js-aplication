@@ -13,6 +13,7 @@ export const AuthFormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 7px;
   transform: scale(0.6);
   animation: incrase 0.5s ease-in-out;
   @keyframes incrase {
@@ -25,12 +26,25 @@ export const AuthFormContainer = styled.div`
     top: 100px;
     left: 41%;
   }
+  button {
+    cursor: pointer;
+    padding: 3px 25px;
+    border: 3px solid darkgray;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      border: 3px solid black;
+      letter-spacing: 0.2px;
+
+    }
+  }
 `;
 
-export const HideFormButton = styled.button`
+export const HideFormButton = styled.div`
   position: absolute;
   top: -25px;
-  right: 0px;
+  right: 5px;
   width: 30px;
   height: 20px;
   background: none;
@@ -76,7 +90,7 @@ export const LogInGoogle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
 
   img {
     border-radius: 50%;
@@ -84,6 +98,7 @@ export const LogInGoogle = styled.div`
 
   button {
     cursor: pointer;
+    width: 135px;
     border-radius: 5px;
     padding: 3px 7px;
     border: none;
@@ -113,6 +128,28 @@ export const LogInGoogle = styled.div`
 
     &:hover {
       transform: scale(1.01);
+      border: none;
     }
+  }
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  input {
+    background-color: darkgray;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 1px 5px;
+    letter-spacing: 1.1px;
+    font-weight: 500;
+    width: 170px;
+  }
+  input::placeholder {
+    color: black;
   }
 `;
