@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { auth } from "../../firebase/firebase";
+import { auth, googleProvider } from "../../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth"; // Importowanie hooka z firebase
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
 import {
   AuthFormContainer,
@@ -45,6 +46,15 @@ export const AuthForm = () => {
     setIsMinimized(!zoomOut);
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log("Zalogowano przez Google:", result.user);
+    } catch (error) {
+      console.error("Błąd podczas logowania przez Google:", error);
+    }
+  };
+
   // Formularz jest widoczny tylko jeśli użytkownik nie jest zalogowany
   return (
     <>
@@ -55,8 +65,8 @@ export const AuthForm = () => {
             <h2>{isLogin ? "Log in" : "Register"}</h2>
           </div>
           <LogInGoogle>
-            <Image src={google} alt="google image" width={20} height={20} />{" "}
-            <button>Log in with google</button>
+            <Image src={google} alt="google image" width={21} height={20} />{" "}
+            <button onClick={handleGoogleLogin}>Log in with google</button>
           </LogInGoogle>
           <div>
             <Form onSubmit={handleSubmit}>
@@ -74,9 +84,7 @@ export const AuthForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <button type="submit">
-                {isLogin ? "Log In" : "Register"}
-              </button>
+              <button type="submit">{isLogin ? "Log In" : "Register"}</button>
             </Form>
           </div>
           <button onClick={() => setIsLogin(!isLogin)}>

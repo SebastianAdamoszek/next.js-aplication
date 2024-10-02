@@ -8,15 +8,7 @@ export default function HomePage() {
       <div className={styles.description}>
         <ul>
           <li>
-            <p>Page Home</p>
-          </li>
-          <li>
-            <p>
-              Get started by editing&nbsp;
-              <code className={styles.code}>app/page.js</code>
-            </p>
-          </li>
-          <li>
+            <p>Page Home
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
               target="_blank"
@@ -32,11 +24,22 @@ export default function HomePage() {
                 priority
               />
             </a>
+            </p>
+            
+          </li>
+          {/* <li>
+            <p>
+              Get started by editing&nbsp;
+              <code className={styles.code}>app/page.js</code>
+            </p>
+          </li> */}
+          <li>
+           
           </li>
         </ul>
       </div>
 
-      <div className={styles.grid}>
+      {/* <div className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
@@ -135,7 +138,7 @@ export default function HomePage() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }
