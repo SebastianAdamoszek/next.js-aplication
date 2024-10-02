@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const ChatPageContainer = styled.div`
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  // bottom: 20px;
+  // right: 20px;
   width: 300px;
   height: ${({ isLoggedIn }) => (isLoggedIn ? "400px" : "60px")};
   background-color: gray;
@@ -11,15 +11,15 @@ export const ChatPageContainer = styled.div`
   border-radius: 8px;
   z-index: 1000;
   cursor: grab;
-
+  transform: scale(0.6);
   animation: incrase 0.5s ease-in-out;
   @keyframes incrase {
     0% {
       transform: scale(0.2);
     }
   }
-  @media (max-width: 768px) {
-    transform: scale(0.6);
+  @media (min-width: 768px) {
+    transform: scale(1);
   }
 `;
 
