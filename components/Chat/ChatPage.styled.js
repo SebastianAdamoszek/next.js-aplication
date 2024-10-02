@@ -4,8 +4,8 @@ export const ChatPageContainer = styled.div`
   position: fixed;
   // bottom: 20px;
   // right: 20px;
-  width: 300px;
-  height: ${({ isLoggedIn }) => (isLoggedIn ? "400px" : "60px")};
+  width: 320px;
+  height: ${({ isLoggedIn }) => (isLoggedIn ? "450px" : "60px")};
   background-color: gray;
   border: 3px solid darkgray;
   border-radius: 8px;
@@ -25,16 +25,19 @@ export const ChatPageContainer = styled.div`
 
 export const Title = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  margin: 0 5px;
 
   button {
-    padding: 0 3px;
+    padding: 3px;
+    border-radius: 7px;
+    transition: 0.2s ease-in-out;
   }
 `;
 
 export const HideChatButton = styled.button`
   position: absolute;
-  top: -40px;
+  top: -31px;
   right: 0px;
   width: 30px;
   height: 20px;

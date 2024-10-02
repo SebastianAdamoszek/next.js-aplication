@@ -14,13 +14,13 @@ export const ChatPage = () => {
   const [user, loading] = useAuthState(auth);
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [position, setPosition] = useState({ top: "170px", left: "1%" });
+  const [position, setPosition] = useState({ top: "235px", left: "1%" });
   const [isMinimized, setIsMinimized] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 1199) {
-        setPosition({ top: "170px", left: "1%" });
+        setPosition({ top: "235px", left: "1%" });
       } else {
         setPosition({ top: "170px", left: "15%" });
       }
@@ -100,7 +100,8 @@ export const ChatPage = () => {
           {user ? (
             <>
               <Title>
-                <h3>Witaj, {user.email}</h3>
+                <h3>Witaj, </h3>
+                <h3>{user.email}</h3>
                 <button onClick={() => auth.signOut()}>Wyloguj</button>
               </Title>
 
