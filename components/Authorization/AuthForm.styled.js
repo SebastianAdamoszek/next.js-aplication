@@ -71,3 +71,48 @@ export const MinimizedFormButton = styled.button`
     background-color: rgba(70, 60, 250, 1);
   }
 `;
+
+export const LogInGoogle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  img {
+    border-radius: 50%;
+  }
+
+  button {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 3px 7px;
+    border: none;
+    font-weight: 500;
+    transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+    background: linear-gradient(90deg, #4285f4, #ea4335, #fbbc05, #34a853);
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 5px;
+      background: linear-gradient(-90deg, #4285f4, #ea4335, #fbbc05, #34a853);
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+      z-index: -1;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+`;

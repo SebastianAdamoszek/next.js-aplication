@@ -8,8 +8,11 @@ import {
 import {
   AuthFormContainer,
   HideFormButton,
+  LogInGoogle,
   MinimizedFormButton,
 } from "./AuthForm.styled";
+import Image from "next/image";
+import google from "/public/google.jpg";
 
 export const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true); // Przełączanie między logowaniem a rejestracją
@@ -50,6 +53,10 @@ export const AuthForm = () => {
           <div>
             <h2>{isLogin ? "Log in" : "Register"}</h2>
           </div>
+          <LogInGoogle>
+            <Image src={google} alt="google image" width={20} height={20} />{" "}
+            <button>Log in with google</button>
+          </LogInGoogle>
           <div>
             <form onSubmit={handleSubmit}>
               <input
