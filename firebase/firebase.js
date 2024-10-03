@@ -3,17 +3,6 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
-// Twoja konfiguracja Firebase z Firebase Console
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAHTtVwXcmT2aDo9tI_sn3Xek3v2R7q_S8",
-//   authDomain: "addfirebasetonextjs.firebaseapp.com",
-//   projectId: "addfirebasetonextjs",
-//   storageBucket: "addfirebasetonextjs.appspot.com",
-//   messagingSenderId: "366009107390",
-//   appId: "1:366009107390:web:75e08da771e23347ddefef",
-//   measurementId: "G-950CM3QF9L"
-// };
-
 const firebaseConfig = {
  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
