@@ -19,6 +19,7 @@ export const TextUser = styled.span`
   font-size: 8px;
   overflow: hidden;
   width: 50px;
+  text-align: center;
   // transition: 0.5s ease-in-out;
   &:hover {
     width: auto;
