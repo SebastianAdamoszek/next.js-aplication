@@ -12,6 +12,7 @@ import {
   LogInGoogle,
   Form,
   MinimizedFormButton,
+  ValidateError,
 } from "./AuthForm.styled";
 import Image from "next/image";
 import google from "/public/google.jpg";
@@ -20,11 +21,45 @@ export const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true); // Przełączanie między logowaniem a rejestracją
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState(""); // Stan do walidacji e-maila
   const [user] = useAuthState(auth); // Hook do monitorowania stanu zalogowania użytkownika
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleEmailChange = (e) => {
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+
+    // Zaktualizowano walidację e-maila z logami
+    if (!validateEmail(emailValue)) {
+      setEmailError("Adres musi zawierać '@' i domenę.");
+    } else {
+      console.log("Poprawny e-mail:", emailValue); // Log dla poprawnego e-maila
+      setEmailError(""); // Czyszczenie błędu, jeśli e-mail jest poprawny
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Formularz został wysłany!");
+    setError("");
+
+    // Walidacja e-maila
+    if (!validateEmail(email)) {
+      setError("Podaj poprawny adres e-mail.");
+      return;
+    }
+
+    // Walidacja hasła
+    if (password.length < 6) {
+      setError("Hasło musi mieć co najmniej 6 znaków.");
+      return;
+    }
+
     try {
       if (isLogin) {
         console.log("Logowanie...");
@@ -36,9 +71,10 @@ export const AuthForm = () => {
         console.log("Zarejestrowano pomyślnie!");
       }
     } catch (error) {
-      console.error("Błąd podczas logowania/rejestracji", error);
+      setError(`Nieprawidłowy e-mail lub hasło`);
     }
   };
+
   const [zoomOut, setIsMinimized] = useState(false);
 
   // Funkcja minimalizowania okna
@@ -51,7 +87,7 @@ export const AuthForm = () => {
       const result = await signInWithPopup(auth, googleProvider);
       console.log("Zalogowano przez Google:", result.user);
     } catch (error) {
-      console.error("Błąd podczas logowania przez Google:", error);
+      console.error("Błąd podczas logowania przez Google:", error.message);
     }
   };
 
@@ -74,9 +110,11 @@ export const AuthForm = () => {
                 type="email"
                 placeholder="E-mail"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                // onChange={(e) => setEmail(e.target.value)}
+                onChange={handleEmailChange}
                 required
               />
+              {emailError && <ValidateError>{emailError}</ValidateError>}
               <input
                 type="password"
                 placeholder="password"
@@ -84,6 +122,8 @@ export const AuthForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              {error && <ValidateError>{error}</ValidateError>}
+
               <button type="submit">{isLogin ? "Log In" : "Register"}</button>
             </Form>
           </div>
