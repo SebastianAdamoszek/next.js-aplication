@@ -153,3 +153,14 @@ export const Form = styled.form`
     color: black;
   }
 `;
+
+export const ValidateError = styled.span`
+  position: relative;
+  top: 0px;
+  left: 0px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: red;
+  font-size: 10px;
+  background-color: black;
+`
