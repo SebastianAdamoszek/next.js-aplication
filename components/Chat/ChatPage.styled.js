@@ -37,7 +37,7 @@ export const Title = styled.div`
 
 export const HideChatButton = styled.button`
   position: absolute;
-  top: -33px;
+  top: -35px;
   right: 0px;
   width: 30px;
   height: 20px;

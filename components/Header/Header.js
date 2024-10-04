@@ -4,6 +4,9 @@ import { MenuComponent } from "./Menu/Menu.js";
 import { AuthStatus } from "../Authorization/AuthStatus.js";
 import { AuthForm } from "../Authorization/AuthForm.js";
 import Link from "next/link";
+import { ThemeSwitcher } from "@/themes/theme.js";
+
+
 
 export const HeaderComponent = () => {
   return (
@@ -11,6 +14,7 @@ export const HeaderComponent = () => {
       <MenuComponent />
       <AuthStatus />
       <AuthForm />
+      <ThemeSwitcher/>
       <HeaderIcons>
         <Link href="https://www.facebook.com/" target="_blank">
           <svg width="30" height="20" fill="#505050" aria-hidden="true">
