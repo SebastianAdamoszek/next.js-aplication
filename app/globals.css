@@ -1,3 +1,7 @@
+@import "../themes/light.css";
+@import "../themes/dark.css";
+@import "../themes/colorful.css";
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -89,12 +93,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
-/*  */
+
+/* Globalne style i resetowanie */
 *,
 ul {
   box-sizing: border-box;
@@ -103,6 +109,7 @@ ul {
   list-style: none;
 }
 
+/* Styl dla body z animacją */
 body {
   animation: boom 0.5s ease-in-out forwards;
 }
@@ -114,19 +121,28 @@ body {
   }
 }
 
+/* Linki */
 a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Akapit z efektem hover */
 p {
   text-shadow: 4px 4px 3px rgba(0, 0, 0, 1);
   transition: 150ms ease-in-out;
 }
 p:hover {
   transform: scale(1.005);
-  color: rgb(148, 148, 148);
+  color: rgba(var(--foreground-rgb), 0.6);
 }
 
-h1,h2,h3,h4,h5,h5,p {
-color: rgb(211, 211, 211)
+/* Nagłówki i akapity bazujące na zmiennych */
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: rgb(var(--foreground-rgb));
 }
