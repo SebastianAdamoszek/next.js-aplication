@@ -111,10 +111,10 @@ ul {
 
 /* Styl dla body z animacją */
 body {
-  animation: boom 0.5s ease-in-out forwards;
+  animation: start-body 0.5s ease-in-out;
 }
 
-@keyframes boom {
+@keyframes start-body {
   0% {
     transform: scaleX(0.1);
     transform-origin: 100% 100%;
