@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { BtnDark, BtnLight, BtnOrange, ThemeContainer } from "./theme.styled";
 
 export const ThemeSwitcher = () => {
   const [theme, setTheme] = useState("light");
@@ -19,10 +20,10 @@ export const ThemeSwitcher = () => {
   };
 
   return (
-    <div>
-      <button onClick={() => changeTheme("light")}>Light</button>
-      <button onClick={() => changeTheme("dark")}>Dark</button>
-      <button onClick={() => changeTheme("colorful")}>Colorful</button>
-    </div>
+    <ThemeContainer>
+      <BtnLight onClick={() => changeTheme("light")}></BtnLight>
+      <BtnDark onClick={() => changeTheme("dark")}></BtnDark>
+      <BtnOrange onClick={() => changeTheme("colorful")}></BtnOrange>
+    </ThemeContainer>
   );
 };

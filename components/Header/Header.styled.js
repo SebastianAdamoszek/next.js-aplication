@@ -21,9 +21,11 @@ export const HeaderIcons = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  gap: 5px;
   width: 150px;
   margin: 0 10px 0 0;
   // border: 2px solid black;
+
+    @media (min-width: 768px) {
+      gap: 5px;
+  }
 `;
