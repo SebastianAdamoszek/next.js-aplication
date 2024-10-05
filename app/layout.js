@@ -7,24 +7,11 @@ import Image from "next/image";
 import styles from "./layout.module.css";
 import { ChatPage } from "@/components/Chat/ChatPage.js";
 
-import { createGlobalStyle } from "styled-components";
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    cursor: url('/icons8-cursor.svg'), auto;
-  }
-
-  button, a, span {
-    cursor: url('/cursor-pointer.svg'), pointer;
-  }
-`;
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   return (
     <>
-      <GlobalStyle />
         <html lang="en">
           <body className={inter.className}>
             <div className={styles.center}>
@@ -40,8 +27,8 @@ export default function RootLayout({ children }) {
             <div>
               <HeaderComponent />
               <ChatPage />
-
               <main>{children}</main>
+              
               <footer>
                 <ul className={styles.footer}>
                   <li>
