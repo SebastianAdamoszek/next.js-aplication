@@ -6,12 +6,12 @@ export const Messages = styled.div`
   padding: 2px 0 2px 5px;
   margin-top: 5px;
   overflow: auto;
-  height: 340px;
+  height: 300px;
   border: 1px solid black;
   background-color: darkgray;
 `;
 
-export const UserMes = styled.div`
+export const UserMessage = styled.div`
   p {
     font-size: 18px;
   }
@@ -23,7 +23,7 @@ export const UserMes = styled.div`
 
 export const Form = styled.form`
   position: relative;
-  top: 4px;
+  top: 5px;
   left: 5px;
 
 `;
