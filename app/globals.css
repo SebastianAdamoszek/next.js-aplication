@@ -85,6 +85,7 @@ body {
 }
 
 body {
+  cursor: url('../public/icons8-cursor.svg'), auto;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
