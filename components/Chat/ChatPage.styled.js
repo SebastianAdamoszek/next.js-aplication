@@ -5,7 +5,7 @@ export const ChatPageContainer = styled.div`
   // bottom: 20px;
   // right: 20px;
   width: 320px;
-  height: ${({ isLoggedIn }) => (isLoggedIn ? "450px" : "60px")};
+  height: ${({ isLoggedIn }) => (isLoggedIn ? "415px" : "60px")};
   background-color: gray;
   border: 3px solid darkgray;
   border-radius: 8px;

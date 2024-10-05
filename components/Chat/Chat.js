@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   collection,
   addDoc,
@@ -9,7 +9,14 @@ import {
   doc,
 } from "firebase/firestore";
 import { db, auth } from "../../firebase/firebase";
-import { Container, Messages, UserMes, Form, Input, Button } from "./Chat.styled";
+import {
+  Container,
+  Messages,
+  UserMessage,
+  Form,
+  Input,
+  Button,
+} from "./Chat.styled";
 
 export const Chat = () => {
   const [message, setMessage] = useState("");
@@ -47,11 +54,23 @@ export const Chat = () => {
     }
   };
 
+  const messagesEndRef = useRef(null);
+
+  // Funkcja przewijająca do końca wiadomości
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Automatyczne przewinięcie po każdej aktualizacji wiadomości
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
   return (
     <Container>
       <Messages>
         {messages.map((msg) => (
-          <UserMes
+          <UserMessage
             key={msg.id}
             className={`message ${
               msg.userId === user.uid ? "my-message" : "other-message"
@@ -62,8 +81,9 @@ export const Chat = () => {
               {msg.text}
             </p>{" "}
             {/* Wyświetl nazwę użytkownika i wiadomość */}
-          </UserMes>
+          </UserMessage>
         ))}
+        <div ref={messagesEndRef} />
       </Messages>
       <Form onSubmit={handleSendMessage}>
         <Input
