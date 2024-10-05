@@ -4,7 +4,7 @@ import { MenuComponent } from "./Menu/Menu.js";
 import { AuthStatus } from "../Authorization/AuthStatus.js";
 import { AuthForm } from "../Authorization/AuthForm.js";
 import Link from "next/link";
-import { ThemeSwitcher } from "@/themes/theme.js";
+import { ThemeSwitcher } from "@/components/Header/Menu/Themes/Theme.js";
 
 export const HeaderComponent = () => {
   return (
