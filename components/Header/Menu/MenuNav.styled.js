@@ -6,7 +6,6 @@ export const Menu = styled.div`
   align-items: center;
 `;
 export const Nav = styled.ul`
-  // display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -18,9 +17,12 @@ export const Nav = styled.ul`
   padding: 15px;
   z-index: -1;
   color: auto;
-  transform: translateY(-100%);
-  opacity: 0;
+  transform: translateY(-100%) scaleY(0);
+  opacity: 1;
   transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    li {
+      width: 25%;
+    }
 
   ${({ isOpen }) =>
     isOpen &&
@@ -39,7 +41,7 @@ export const Nav = styled.ul`
         100% {
           color: auto;
         }
-    }     
+    }   
 `}
 
   @media (min-width: 768px) {
