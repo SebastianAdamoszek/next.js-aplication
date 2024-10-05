@@ -20,16 +20,16 @@ export const ChatPage = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 1199) {
-        setPosition({ top: "235px", left: "1%" });
+        setPosition({ top: !!user ? "105px" : "235px", left: "1%" });
       } else {
-        setPosition({ top: "170px", left: "15%" });
+        setPosition({ top: "170px", left: "14%" });
       }
     };
 
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [user]);
 
   if (loading) {
     return <div>Ładowanie...</div>;
