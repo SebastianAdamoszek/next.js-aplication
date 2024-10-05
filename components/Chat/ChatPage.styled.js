@@ -4,15 +4,15 @@ export const ChatPageContainer = styled.div`
   position: fixed;
   // bottom: 20px;
   // right: 20px;
-  width: ${({isLoggedIn}) => (isLoggedIn ? "320px" : "270px")};
+  width: ${({ isLoggedIn }) => (isLoggedIn ? "320px" : "270px")};
   height: ${({ isLoggedIn }) => (isLoggedIn ? "415px" : "60px")};
   background-color: gray;
   border: 3px solid darkgray;
   border-radius: 8px;
   z-index: 1000;
-  cursor: url('/cursor-grab.png'), grab;
   transform: scale(0.6);
-  margin-top: ${({isLoggedIn}) => (isLoggedIn ? "-95px" : "")};
+  cursor: url("/cursor-grab.png"), grab;
+  margin-top: ${({ isLoggedIn }) => (isLoggedIn ? "-95px" : "")};
   animation: incrase 0.5s ease-in-out;
   @keyframes incrase {
     0% {

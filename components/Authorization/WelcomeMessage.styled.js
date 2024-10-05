@@ -42,9 +42,7 @@ export const LogOut = styled.span`
   }
 `;
 
-export const Icon= styled.div`
-// position: absolute;
-// top: 15px;
-// font-size: 35px;
-// z-index: -1;
+export const Icon= styled.span`
+font-size: 17px;
+padding: 0 0 0 10px;
 `;
