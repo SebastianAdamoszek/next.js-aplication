@@ -50,7 +50,7 @@ export const Nav = styled.ul`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 0;
+    width: auto;
     gap: 15px;
     background-color: inherit;
     z-index: 0;
@@ -67,9 +67,5 @@ export const Nav = styled.ul`
         color: auto;
       }
     }
-  }
-
-  @media (min-width: 1200px) {
-    margin: 0 200px 0 0px;
   }
 `;
