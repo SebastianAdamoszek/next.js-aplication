@@ -1,6 +1,6 @@
-@import "../themes/light.css";
-@import "../themes/dark.css";
-@import "../themes/colorful.css";
+@import "../components/Header/Menu/Themes/dark.css";
+@import "../components/Header/Menu/Themes/light.css";
+@import "../components/Header/Menu/Themes/orange.css";
 
 :root {
   --max-width: 1100px;
