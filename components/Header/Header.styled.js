@@ -14,7 +14,7 @@ export const Header = styled.div`
 
   @media (min-width: 768px) {
     justify-content: end;
-    gap: 150px;
+    gap: 15%;
   }
 `;
 export const HeaderIcons = styled.div`
