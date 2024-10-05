@@ -12,6 +12,7 @@ export const ChatPageContainer = styled.div`
   z-index: 1000;
   cursor: grab;
   transform: scale(0.6);
+  margin-top: ${({isLoggedIn}) => (isLoggedIn ? "-95px" : "")};
   animation: incrase 0.5s ease-in-out;
   @keyframes incrase {
     0% {
@@ -20,6 +21,7 @@ export const ChatPageContainer = styled.div`
   }
   @media (min-width: 768px) {
     transform: scale(1);
+    margin-top: 0;
   }
 `;
 
