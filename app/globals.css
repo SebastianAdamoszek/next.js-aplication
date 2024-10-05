@@ -83,9 +83,18 @@ body {
   overflow-x: hidden;
   color-scheme: dark;
 }
+body {
+  cursor: url("../public/icons8-cursor.svg"), auto;
+}
+a {
+  cursor: url("../public/cursor-pointer.svg"), pointer;
+}
+button {
+  cursor: url("../public/cursor-pointer.svg"), pointer;
+}
+
 
 body {
-  cursor: url('../public/icons8-cursor.svg'), auto;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,

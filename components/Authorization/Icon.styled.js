@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const IconButton = styled.div`
+export const Icon = styled.div`
   border-radius: 50%;
   background-color: rgba(100, 100, 100, 0.6);
   width: 50px;
@@ -10,7 +10,7 @@ export const IconButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  // cursor: pointer;
   transition: 0.2s ease-in-out;
 
   &:hover {

@@ -1,9 +1,9 @@
-import { IconButton } from "./Icon.styled";
+import { Icon } from "./Icon.styled";
 
-export const OpenFormButton = () => {
+export const IconStatus = () => {
   return (
     <>
-      <IconButton title="Nie jesteś zalogowany">😴</IconButton>
+      <Icon title="Nie jesteś zalogowany">😴</Icon>
     </>
   );
 };
