@@ -10,7 +10,7 @@ export const ChatPageContainer = styled.div`
   border: 3px solid darkgray;
   border-radius: 8px;
   z-index: 1000;
-  cursor: grab;
+  cursor: url('/cursor-grab.png'), grab;
   transform: scale(0.6);
   margin-top: ${({isLoggedIn}) => (isLoggedIn ? "-95px" : "")};
   animation: incrase 0.5s ease-in-out;
@@ -46,7 +46,7 @@ export const HideChatButton = styled.button`
   background: none;
   border: none;
   font-size: 25px;
-  cursor: pointer;
+  cursor: url('/cursor-pointer.svg'), pointer;
   text-align: center;
 `;
 
@@ -61,7 +61,7 @@ export const MinimizedChatButton = styled.button`
   border: none;
   z-index: 1000;
   font-size: 24px;
-  cursor: pointer;
+  cursor: url('/cursor-pointer.svg'), pointer;
   transition: 0.25s ease-in-out;
 
   animation: slide 0.5s ease-in-out;

@@ -7,6 +7,8 @@ export const ThemeContainer = styled.div`
   justify-content: center;
   gap: 5px;
   padding: 0px 5px 8px 8px;
+  cursor: url('/cursor-pionter.svg') pointer;
+
 `;
 
 export const BtnDark = styled.button`
@@ -15,7 +17,6 @@ export const BtnDark = styled.button`
   width: 20px;
   height: 10px;
   border: none;
-  cursor: pointer;
 `;
 
 export const BtnLight = styled.button`
@@ -24,7 +25,6 @@ export const BtnLight = styled.button`
   width: 20px;
   height: 10px;
   border: none;
-  cursor: pointer;
 `;
 
 export const BtnOrange = styled.button`
@@ -33,5 +33,4 @@ export const BtnOrange = styled.button`
   width: 20px;
   height: 10px;
   border: none;
-  cursor: pointer;
 `;

@@ -27,7 +27,7 @@ export const AuthFormContainer = styled.div`
     left: 41%;
   }
   button {
-    cursor: pointer;
+  cursor: url('/cursor-pionter.svg') pointer;
     padding: 3px 25px;
     border: 3px solid darkgray;
     border-radius: 10px;
@@ -50,7 +50,7 @@ export const HideFormButton = styled.div`
   background: none;
   border: none;
   font-size: 25px;
-  cursor: pointer;
+  cursor: url('/cursor-pointer.svg'), pointer;
   text-align: center;
   transform: rotate(-90deg);
 `;
@@ -66,7 +66,7 @@ export const MinimizedFormButton = styled.button`
   border: none;
   z-index: 1000;
   font-size: 35px;
-  cursor: pointer;
+  cursor: url('/cursor-pionter.svg') pointer;
   transition: 0.25s ease-in-out;
 
   animation: slideForm 0.5s ease-in-out;
@@ -97,7 +97,7 @@ export const LogInGoogle = styled.div`
   }
 
   button {
-    cursor: pointer;
+  cursor: url('/cursor-pionter.svg') pointer;
     width: 135px;
     border-radius: 5px;
     padding: 3px 7px;

@@ -28,7 +28,7 @@ export const TextUser = styled.span`
 `;
 export const LogOut = styled.span`
   font-size: 8px;
-  cursor: pointer;
+  cursor: url('/cursor-pionter.svg') pointer;
   background-color: rgba(100, 10, 10, 0.5);
   padding: 2px;
   border-radius: 5px;

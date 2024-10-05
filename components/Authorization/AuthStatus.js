@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { WelcomeMessage } from "./WelcomeMessage";
-import { OpenFormButton } from "./Icon";
+import { IconStatus} from "./Icon";
 
 export const AuthStatus = () => {
   const [user, setUser] = useState(null);
@@ -17,6 +17,6 @@ export const AuthStatus = () => {
   }, []);
 
   return (
-    <div>{user ? <WelcomeMessage email={user.email} /> : <OpenFormButton />}</div>
+    <div>{user ? <WelcomeMessage email={user.email} /> : <IconStatus />}</div>
   );
 };
