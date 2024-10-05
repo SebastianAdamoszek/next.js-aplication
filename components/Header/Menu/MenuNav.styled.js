@@ -48,9 +48,8 @@ export const Nav = styled.ul`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: auto;
+    width: 0;
     gap: 15px;
-    margin: 0 0 0 100px;
     background-color: inherit;
     z-index: 0;
     font-size: 16px;
@@ -69,6 +68,6 @@ export const Nav = styled.ul`
   }
 
   @media (min-width: 1200px) {
-    margin: 0 300px 0 100px;
+    margin: 0 200px 0 0px;
   }
 `;

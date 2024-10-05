@@ -14,15 +14,15 @@ export const ChatPage = () => {
   const [user, loading] = useAuthState(auth);
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [position, setPosition] = useState({ top: "235px", left: "1%" });
+  const [position, setPosition] = useState({ top: " ", left: " " });
   const [isMinimized, setIsMinimized] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 1199) {
-        setPosition({ top: !!user ? "105px" : "235px", left: "1%" });
+        setPosition({ top: !!user ? "105px" : "235px", left: "5%" });
       } else {
-        setPosition({ top: "170px", left: "14%" });
+        setPosition({ top: !!user ? "105px" : "235px", left: "18%" });
       }
     };
 
@@ -32,7 +32,7 @@ export const ChatPage = () => {
   }, [user]);
 
   if (loading) {
-    return <div>Ładowanie...</div>;
+    return <div>Loading...</div>;
   }
 
   const handleMouseDown = (e) => {
