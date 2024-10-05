@@ -5,6 +5,7 @@ import {
   TextTitle,
   TextUser,
   LogOut,
+  Icon
 } from "./WelcomeMessage.styled";
 
 export const WelcomeMessage = ({ email }) => {
@@ -19,7 +20,7 @@ export const WelcomeMessage = ({ email }) => {
 
   return (
     <Container>
-      <TextTitle>Hi !</TextTitle>
+<Icon title="Jesteś zalogowany">🙂</Icon>      <TextTitle>Hi !</TextTitle>
         <TextUser>{email}</TextUser>
         <LogOut onClick={handleLogout}>Log out</LogOut>
     </Container>

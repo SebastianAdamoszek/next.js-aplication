@@ -41,3 +41,10 @@ export const LogOut = styled.span`
     color: rgba(100, 10, 10, 1);
   }
 `;
+
+export const Icon= styled.div`
+// position: absolute;
+// top: 15px;
+// font-size: 35px;
+// z-index: -1;
+`;
