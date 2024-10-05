@@ -11,8 +11,8 @@ export const ThemeContainer = styled.div`
 
 export const BtnDark = styled.button`
   background-color: black;
-  border-radius: 50%;
-  width: 15px;
+  border-radius: 5px;
+  width: 20px;
   height: 10px;
   border: none;
   cursor: pointer;
@@ -20,8 +20,8 @@ export const BtnDark = styled.button`
 
 export const BtnLight = styled.button`
   background-color: white;
-  border-radius: 50%;
-  width: 15px;
+  border-radius: 5px;
+  width: 20px;
   height: 10px;
   border: none;
   cursor: pointer;
@@ -29,8 +29,8 @@ export const BtnLight = styled.button`
 
 export const BtnOrange = styled.button`
   background-color: orange;
-  border-radius: 50%;
-  width: 15px;
+  border-radius: 5px;
+  width: 20px;
   height: 10px;
   border: none;
   cursor: pointer;

@@ -13,8 +13,8 @@ export const Header = styled.div`
   padding: 10px 0;
 
   @media (min-width: 768px) {
-      justify-content: end;
-      gap: 150px;
+    justify-content: end;
+    gap: 150px;
   }
 `;
 export const HeaderIcons = styled.div`
@@ -23,9 +23,10 @@ export const HeaderIcons = styled.div`
   justify-content: center;
   width: 150px;
   margin: 0 10px 0 0;
-  // border: 2px solid black;
 
-    @media (min-width: 768px) {
-      gap: 5px;
+  @media (min-width: 768px) {
+    gap: 5px;
+    margin: 0 20px 0 0;
+
   }
 `;
