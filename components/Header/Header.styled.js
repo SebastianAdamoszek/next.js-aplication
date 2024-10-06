@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: sticky;
   top: 0;
   width: 100%;
-  height: auto;
-  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    z-index: 100;
   background-color: rgb(12, 38, 124);
   padding: 10px 0;
 

@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const ChatPageContainer = styled.div`
   position: fixed;
-  // bottom: 20px;
-  // right: 20px;
   width: ${({ isLoggedIn }) => (isLoggedIn ? "320px" : "270px")};
   height: ${({ isLoggedIn }) => (isLoggedIn ? "415px" : "60px")};
   background-color: gray;

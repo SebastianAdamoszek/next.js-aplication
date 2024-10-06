@@ -41,7 +41,6 @@ export default function RootLayout({ children }) {
                 />
               </div>
               <HeaderComponent />
-              <ChatPage />
               <main>{children}</main>
 
               <footer>
@@ -51,6 +50,7 @@ export default function RootLayout({ children }) {
                   </li>
                 </ul>
               </footer>
+              <ChatPage />
             </div>
           )}
         </body>
