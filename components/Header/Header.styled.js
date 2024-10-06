@@ -4,7 +4,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   height: auto;
@@ -13,9 +13,10 @@ export const Header = styled.div`
   padding: 10px 0;
 
   @media (min-width: 768px) {
+    position: fixed;
     justify-content: end;
     gap: 15%;
-  }
+
 `;
 export const HeaderIcons = styled.div`
   display: flex;
@@ -27,6 +28,5 @@ export const HeaderIcons = styled.div`
   @media (min-width: 768px) {
     gap: 5px;
     margin: 0 20px 0 0;
-
   }
 `;

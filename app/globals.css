@@ -92,7 +92,9 @@ a {
 button {
   cursor: url("../public/cursor-pointer.svg"), pointer;
 }
-
+button {
+  color: var(--foreground-rgb);
+}
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -137,11 +139,6 @@ a {
   text-decoration: none;
 }
 
-/* Akapit z efektem hover */
-p {
-  text-shadow: 4px 4px 3px rgba(0, 0, 0, 1);
-  transition: 150ms ease-in-out;
-}
 p:hover {
   transform: scale(1.005);
   color: rgba(var(--foreground-rgb), 0.6);
@@ -155,4 +152,6 @@ h4,
 h5,
 p {
   color: rgb(var(--foreground-rgb));
+  text-shadow: 4px 4px 3px rgba(0, 0, 0, 1);
+  transition: 150ms ease-in-out;
 }

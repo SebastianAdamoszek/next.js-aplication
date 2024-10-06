@@ -27,7 +27,7 @@ export const AuthFormContainer = styled.div`
     left: 41%;
   }
   button {
-  cursor: url('/cursor-pionter.svg') pointer;
+    cursor: url('/cursor-pionter.svg') pointer;
     padding: 3px 25px;
     border: 3px solid darkgray;
     border-radius: 10px;
