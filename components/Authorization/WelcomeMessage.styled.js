@@ -3,7 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   border: 1px solid rgba(100, 100, 100, 0.8);
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(100, 100, 100, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(100, 100, 100, 0.2)
+  );
   width: 80px;
   padding: 0px;
   display: flex;
@@ -13,14 +17,14 @@ export const Container = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 export const TextTitle = styled.span`
-  font-size: 12px; 
-  font-weight: bold; 
+  font-size: 12px;
+  font-weight: bold;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 `;
 export const TextUser = styled.span`
-  font-size: 10px; 
+  font-size: 10px;
   overflow: hidden;
-  width: 70px; 
+  width: 70px;
   text-align: center;
   &:hover {
     width: auto;
@@ -30,7 +34,7 @@ export const TextUser = styled.span`
 
 export const LogOut = styled.span`
   font-size: 8px;
-  cursor: url('/cursor-pionter.svg') pointer;
+  cursor: url("/cursor-pionter.svg") pointer;
   background-color: rgba(100, 10, 10, 0.5);
   padding: 2px 10px;
   border-radius: 5px;
@@ -42,7 +46,7 @@ export const LogOut = styled.span`
   }
 `;
 
-export const Icon= styled.span`
-font-size: 17px;
-padding: 0 0 0 10px;
+export const Icon = styled.span`
+  font-size: 17px;
+  padding: 0 0 0 10px;
 `;
