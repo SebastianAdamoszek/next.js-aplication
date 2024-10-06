@@ -9,6 +9,7 @@ import {
   GuestChatContainer,
   HideChatButton,
 } from "./ChatPage.styled";
+import "@/app/globals.css";
 
 export const ChatPage = () => {
   const [user, loading] = useAuthState(auth);
@@ -32,7 +33,11 @@ export const ChatPage = () => {
   }, [user]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <p className="loading-text">Loading...</p>
+      </div>
+    );
   }
 
   const handleMouseDown = (e) => {
@@ -104,7 +109,6 @@ export const ChatPage = () => {
                 <h3>{user.email}</h3>
                 <button onClick={() => auth.signOut()}>Wyloguj</button>
               </Title>
-
               <Chat />
             </>
           ) : (

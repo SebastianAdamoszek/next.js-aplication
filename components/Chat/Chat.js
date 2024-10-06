@@ -54,13 +54,14 @@ export const Chat = () => {
     }
   };
 
-  const messagesEndRef = useRef(null);
+  const messagesEndRef =  useRef(null);
 
-  // Funkcja przewijająca do końca wiadomości
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 600);
   };
-
+  
   // Automatyczne przewinięcie po każdej aktualizacji wiadomości
   useEffect(() => {
     scrollToBottom();
