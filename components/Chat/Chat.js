@@ -77,7 +77,7 @@ export const Chat = () => {
             }`}
           >
             <p>
-              <span>{msg.username} </span>
+              <span>{msg.username}</span>
               {msg.text}
             </p>{" "}
             {/* Wyświetl nazwę użytkownika i wiadomość */}

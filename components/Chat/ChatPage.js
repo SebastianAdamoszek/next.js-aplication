@@ -100,7 +100,7 @@ export const ChatPage = () => {
           {user ? (
             <>
               <Title>
-                <h3>Witaj, </h3>
+                <h3>Witaj na czacie </h3>
                 <h3>{user.email}</h3>
                 <button onClick={() => auth.signOut()}>Wyloguj</button>
               </Title>
