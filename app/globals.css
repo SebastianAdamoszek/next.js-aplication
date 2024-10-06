@@ -13,7 +13,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
-  --primary-glow: conic-gradient(
+  /* --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     #16abff33 0deg,
     #0885ff33 55deg,
@@ -24,6 +24,14 @@
   --secondary-glow: radial-gradient(
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0)
+  ); */
+
+  --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+  --secondary-glow: linear-gradient(
+    to bottom right,
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0.3)
   );
 
   --tile-start-rgb: 239, 245, 249;
@@ -76,6 +84,11 @@
     --card-border-rgb: 200, 200, 200;
   }
 }
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
 
 html,
 body {
@@ -108,13 +121,6 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
-/* Globalne style i resetowanie */
 *,
 ul {
   box-sizing: border-box;
@@ -123,19 +129,6 @@ ul {
   list-style: none;
 }
 
-/* Styl dla body z animacją */
-html {
-  animation: start-body 0.5s ease-in-out;
-}
-
-@keyframes start-body {
-  0% {
-    transform: scaleX(0.1);
-    transform-origin: 100% 100%;
-  }
-}
-
-/* Linki */
 a {
   color: inherit;
   text-decoration: none;
@@ -146,7 +139,6 @@ p:hover {
   color: rgba(var(--foreground-rgb), 0.6);
 }
 
-/* Nagłówki i akapity bazujące na zmiennych */
 h1,
 h2,
 h3,
@@ -170,22 +162,27 @@ html,
   }
 }
 
-/* styles.css */
 .loading-text {
-  font-size: 24px; /* Większy rozmiar tekstu */
-  background: linear-gradient(90deg, #3498db, #9b59b6); /* Gradient */
-  background-clip: text; /* Clip na tle */
-  -webkit-text-fill-color: transparent; /* Przezroczystość */
-  text-align: center; /* Wyśrodkowanie tekstu */
-  margin-top: 20px; /* Odstęp od górnej krawędzi */
-  animation: shine 1.5s infinite; /* Animacja "shine" */
+  font-size: 24px;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-top: 20px;
+  animation: shine 1.5s infinite;
 }
 
 @keyframes shine {
   0% {
-    background-position: -1000px 0; /* Początkowa pozycja gradientu */
+    background-position: -1000px 0;
   }
   100% {
-    background-position: 1000px 0; /* Końcowa pozycja gradientu */
+    background-position: 1000px 0;
   }
 }
+
+/* @media (prefers-reduced-motion) {
+  .card:hover span {
+    transform: none;
+  }
+} */

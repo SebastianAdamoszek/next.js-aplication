@@ -51,12 +51,15 @@ export const HideChatButton = styled.button`
 export const MinimizedChatButton = styled.button`
   position: fixed;
   bottom: 30px;
-  right: 20px;
+  right: 5px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: rgba(70, 0, 250, 0.8);
-  border: none;
+  background: linear-gradient(
+    135deg,
+    rgba(70, 100, 255, 0.8),
+    rgba(70, 100, 255, 0.3)
+  );  border: none;
   z-index: 1000;
   font-size: 24px;
   cursor: url('/cursor-pointer.svg'), pointer;
@@ -76,8 +79,8 @@ export const MinimizedChatButton = styled.button`
   }
 
   &:hover {
-    background-color: rgba(70, 60, 250, 1);
-  }
+ background-color: rgba(255, 255, 250, 0.5);
+    font-size: 25px;  }
 `;
 
 export const GuestChatContainer = styled.div`
