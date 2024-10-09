@@ -1,10 +1,11 @@
 import React from "react";
 import { Header, HeaderIcons } from "./Header.styled.js";
 import { MenuComponent } from "./Menu/Menu.js";
-import { AuthStatus } from "../Authorization/AuthStatus.js";
-import { AuthForm } from "../Authorization/AuthForm.js";
+import { AuthStatus } from "../AuthStatus/AuthStatus.js";
+import { Authorization } from "../../firebase/Authorization.js";
 import Link from "next/link";
 import { ThemeSwitcher } from "@/components/Header/Menu/Themes/Theme.js";
+import { AuthForm } from "../AuthForm/AuthForm.js";
 
 export const HeaderComponent = () => {
   return (

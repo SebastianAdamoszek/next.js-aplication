@@ -23,7 +23,7 @@ export const MenuComponent = () => {
       </Burger>
       <Nav isOpen={isOpen}>
         <li>
-          <Link href="/" onClick={closeMenu}>
+          <Link href="/home" onClick={closeMenu}>
             <p>Home</p>
           </Link>
         </li>
