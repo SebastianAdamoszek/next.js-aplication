@@ -4,8 +4,8 @@ import {
   Container,
   TextTitle,
   TextUser,
-  LogOut,
   Icon,
+  LogOutButton,
 } from "./LogIn.styled";
 
 export const LogIn = ({ email }) => {
@@ -25,7 +25,7 @@ export const LogIn = ({ email }) => {
         <Icon>🙂</Icon>
       </TextTitle>
       <TextUser>{email}</TextUser>
-      <LogOut onClick={handleLogout}>Log out</LogOut>
+      <LogOutButton onClick={handleLogout}>Log out</LogOutButton>
     </Container>
   );
 };

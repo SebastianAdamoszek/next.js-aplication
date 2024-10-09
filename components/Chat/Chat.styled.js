@@ -9,6 +9,7 @@ export const Messages = styled.div`
   height: 300px;
   border: 1px solid black;
   background-color: darkgray;
+  cursor: text ;
 `;
 
 export const UserMessage = styled.div`
