@@ -98,7 +98,7 @@ export const LogInGoogle = styled.div`
   gap: 10px;
 
   img {
-    border-radius: 50%;
+    border-radius: 10px;
   }
 
   button {

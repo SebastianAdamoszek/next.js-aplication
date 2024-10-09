@@ -1,6 +1,6 @@
-import { Icon } from "./Icon.styled";
+import { Icon } from "./LogOut.styled";
 
-export const IconStatusInactive = () => {
+export const LogOut = () => {
   return (
     <>
       <Icon title="Nie jesteś zalogowany">😴</Icon>

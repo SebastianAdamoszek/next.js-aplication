@@ -1,14 +1,14 @@
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase/firebase";
+import { auth } from "../../../firebase/firebase";
 import {
   Container,
   TextTitle,
   TextUser,
   LogOut,
   Icon,
-} from "./WelcomeMessage.styled";
+} from "./LogIn.styled";
 
-export const WelcomeMessage = ({ email }) => {
+export const LogIn = ({ email }) => {
   const handleLogout = async () => {
     try {
       await signOut(auth);

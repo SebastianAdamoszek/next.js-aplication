@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
-import { WelcomeMessage } from "./WelcomeMessage";
-import { IconStatusInactive} from "./Icon";
+import { LogIn } from "./LogIn/LogIn";
+import { LogOut } from "./LogOut/LogOut";
 
 export const AuthStatus = () => {
   const [user, setUser] = useState(null);
@@ -17,6 +17,6 @@ export const AuthStatus = () => {
   }, []);
 
   return (
-    <div>{user ? <WelcomeMessage email={user.email} /> : <IconStatusInactive />}</div>
+    <div>{user ? <LogIn email={user.email} /> : <LogOut />}</div>
   );
 };
