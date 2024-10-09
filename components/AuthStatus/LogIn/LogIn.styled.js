@@ -9,7 +9,7 @@ export const Container = styled.div`
     rgba(100, 100, 100, 0.2)
   );
   width: 80px;
-  padding: 0px;
+  padding: 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,6 +26,7 @@ export const TextUser = styled.span`
   overflow: hidden;
   width: 70px;
   text-align: center;
+
   &:hover {
     width: auto;
     background-color: rgba(50, 0, 0, 0.5);
@@ -38,7 +39,7 @@ export const LogOut = styled.span`
   background-color: rgba(100, 10, 10, 0.5);
   padding: 2px 10px;
   border-radius: 5px;
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;z
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.5);
