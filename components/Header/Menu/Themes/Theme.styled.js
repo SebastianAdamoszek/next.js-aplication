@@ -3,12 +3,11 @@ import styled from "styled-components";
 export const ThemeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-item: center;
+  align-items: center;
   justify-content: center;
   gap: 5px;
   padding: 0px 5px 8px 8px;
-  cursor: url('/cursor-pionter.svg') pointer;
-
+  cursor: url("/cursor-pionter.svg") pointer;
 `;
 
 export const BtnDark = styled.button`

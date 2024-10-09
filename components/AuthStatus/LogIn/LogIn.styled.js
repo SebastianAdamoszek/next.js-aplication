@@ -33,13 +33,14 @@ export const TextUser = styled.span`
   }
 `;
 
-export const LogOut = styled.span`
+export const LogOutButton = styled.button`
   font-size: 8px;
-  cursor: url("/cursor-pionter.svg") pointer;
+  cursor: url("/cursor-pointer.svg") pointer;
   background-color: rgba(100, 10, 10, 0.5);
   padding: 2px 10px;
   border-radius: 5px;
-  transition: 0.2s ease-in-out;z
+  border: none;
+  transition: 0.2s ease-in-out;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.5);
