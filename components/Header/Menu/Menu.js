@@ -42,6 +42,11 @@ export const MenuComponent = () => {
             <p>Gallery</p>
           </Link>
         </li>
+        <li>
+          <Link href="/finance" onClick={closeMenu}>
+            <p>Finance</p>
+          </Link>
+        </li>
       </Nav>
     </Menu>
   );

@@ -14,8 +14,8 @@ export const Header = styled.div`
   @media (min-width: 768px) {
     position: fixed;
     justify-content: end;
-    gap: 15%;
-
+    gap: 11%;
+  }
 `;
 export const HeaderIcons = styled.div`
   display: flex;

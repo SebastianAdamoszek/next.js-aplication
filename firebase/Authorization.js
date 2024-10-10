@@ -12,8 +12,10 @@ import {
 export const loginUser = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    console.log(`Użytkownik ${email} zalogowany`);
     return { success: true };
   } catch (error) {
+    console.log("E-mail lub hasło jest nieprawidłowe");
     return { success: false, message: "Nieprawidłowy e-mail lub hasło" };
   }
 };
@@ -26,7 +28,11 @@ export const registerUser = async (email, password) => {
     await createUserWithEmailAndPassword(auth, email, password);
     return { success: true };
   } catch (error) {
-    return { success: false, message: "Błąd podczas rejestracji" };
+    console.log("Błąd podczas rejestracji, email juz istnieje");
+    return {
+      success: false,
+      message: "Błąd podczas rejestracji email juz istnieje",
+    };
   }
 };
 
@@ -38,6 +44,7 @@ export const loginWithGoogle = async () => {
     const result = await signInWithPopup(auth, googleProvider);
     return { success: true, user: result.user };
   } catch (error) {
+    console.log("Błąd podczas logowania");
     return { success: false, message: error.message };
   }
 };
