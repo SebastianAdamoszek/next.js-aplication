@@ -7,7 +7,7 @@ export const AuthFormContainer = styled.div`
   background-color: gray;
   z-index: 1000;
   width: 200px;
-  padding: 10px;
+  padding: 0px 0px 10px 0px;
   border-radius: 10px;
   display: ${({ signOut }) => (signOut ? "none" : "flex")};
   flex-direction: column;
@@ -26,18 +26,6 @@ export const AuthFormContainer = styled.div`
     top: 100px;
     left: 41%;
   }
-  button {
-    cursor: url("/cursor-pionter.svg") pointer;
-    padding: 3px 25px;
-    border: 3px solid darkgray;
-    border-radius: 10px;
-    transition: 0.2s ease-in-out;
-
-    &:hover {
-      border: 3px solid black;
-      letter-spacing: 0.2px;
-    }
-  }
 `;
 
 export const HideFormButton = styled.div`
@@ -54,40 +42,30 @@ export const HideFormButton = styled.div`
   transform: rotate(-90deg);
 `;
 
-export const MinimizedFormButton = styled.button`
-  position: absolute;
-  top: 80px;
-  right: 5px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(70, 100, 255, 0.8),
-    rgba(70, 100, 255, 0.3)
-  );
+export const LogRegContainer = styled.div`
+  display: flex;
 
-  border: none;
-  z-index: 1000;
-  font-size: 35px;
-  cursor: url("/cursor-pionter.svg") pointer;
-  transition: 0.2s ease-in-out;
+  button {
+    cursor: url("/cursor-pionter.svg") pointer;
+    padding: 3px 0px;
+    border: 3px solid darkgray;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    text-align: center;
+    width: 100px;
 
-  animation: slideForm 0.5s ease-in-out;
-  @keyframes slideForm {
-    0% {
-      top: 80px;
-      right: 50%;
+    &:hover {
+      border: 3px solid black;
+      letter-spacing: 0.2px;
     }
-    80% {
-      top: 80px;
-      right: -5%;
-    }
-  }
 
-  &:hover {
-    background-color: rgba(255, 255, 250, 0.5);
-    font-size: 36px;
+    &:disabled {
+      background-color: gray;
+      color: lightgray;
+      border: 3px solid gray;
+      cursor: url("/icons8-cursor.svg"), auto;
+      letter-spacing: normal;
+    }
   }
 `;
 
@@ -157,6 +135,18 @@ export const Form = styled.form`
   input::placeholder {
     color: black;
   }
+  button {
+    cursor: url("/cursor-pionter.svg") pointer;
+    padding: 3px 25px;
+    border: 3px solid darkgray;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      border: 3px solid black;
+      letter-spacing: 0.2px;
+    }
+  }
 `;
 
 export const ValidateError = styled.span`
@@ -168,4 +158,41 @@ export const ValidateError = styled.span`
   color: red;
   font-size: 10px;
   background-color: black;
+`;
+
+export const MinimizedFormButton = styled.button`
+  position: absolute;
+  top: 80px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(70, 100, 255, 0.8),
+    rgba(70, 100, 255, 0.3)
+  );
+
+  border: none;
+  z-index: 1000;
+  font-size: 35px;
+  cursor: url("/cursor-pionter.svg") pointer;
+  transition: 0.2s ease-in-out;
+
+  animation: slideForm 0.5s ease-in-out;
+  @keyframes slideForm {
+    0% {
+      top: 80px;
+      right: 50%;
+    }
+    80% {
+      top: 80px;
+      right: -5%;
+    }
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 250, 0.5);
+    font-size: 36px;
+  }
 `;

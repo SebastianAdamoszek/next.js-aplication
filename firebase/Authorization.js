@@ -1,5 +1,7 @@
 // components/Authorization/Authorization.js
-import { auth, googleProvider } from "./firebase"; // Popraw ścieżkę do Firebase
+import { auth, googleProvider } from "./firebase";
+import { signOut } from "firebase/auth";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -46,5 +48,14 @@ export const loginWithGoogle = async () => {
   } catch (error) {
     console.log("Błąd podczas logowania");
     return { success: false, message: error.message };
+  }
+};
+
+export const handleLogout = async () => {
+  try {
+    await signOut(auth);
+    console.log(`Użytkownik ${email} wylogowany`);
+  } catch (error) {
+    console.error("Błąd podczas wylogowania", error);
   }
 };

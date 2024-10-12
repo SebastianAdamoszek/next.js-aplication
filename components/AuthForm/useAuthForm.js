@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import { loginUser, registerUser, loginWithGoogle } from "../../firebase/Authorization"; // Import funkcji autoryzacyjnych
 import { useAuthState } from "react-firebase-hooks/auth"; // Importowanie hooka z firebase
@@ -12,7 +13,9 @@ export const useAuthForm = () => {
   const [emailError, setEmailError] = useState(""); // Walidacja e-maila
   const [zoomOut, setIsMinimized] = useState(false); // Minimalizacja okna
   const [user] = useAuthState(auth); // Hook do monitorowania stanu zalogowania użytkownika
-
+  const [isLoginMode] = useState(true);
+  const [isRegisterMode] = useState(false);
+  
 
   // Walidacja e-maila
   const validateEmail = (email) => {
@@ -73,9 +76,19 @@ export const useAuthForm = () => {
   };
 
   // Przełączanie między logowaniem a rejestracją
-  const toggleAuthMode = () => {
-    setIsLogin(!isLogin);
+  // const toggleAuthMode = () => {
+  //   setIsLogin(!isLogin);
+  // };
+  
+  const showLoginMode = () => {
+    setIsLogin(true); // Ustaw tryb logowania
   };
+  
+  const showRegisterMode = () => {
+    setIsLogin(false); // Ustaw tryb rejestracji
+  };
+  
+  
 
   // Minimalizacja okna
   const toggleMinimize = () => {
@@ -94,7 +107,11 @@ export const useAuthForm = () => {
     handlePasswordChange,
     handleSubmit,
     handleGoogleLogin,
-    toggleAuthMode,
+    // toggleAuthMode,
     toggleMinimize,
+    showLoginMode,
+    showRegisterMode,
+    isLoginMode,
+    isRegisterMode
   };
 };
