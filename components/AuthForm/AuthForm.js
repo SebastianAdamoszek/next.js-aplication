@@ -1,5 +1,5 @@
-'use client';
-import { useAuthForm } from "./useAuthForm"; 
+"use client";
+import { useAuthForm } from "./useAuthForm";
 import Image from "next/image";
 import {
   AuthFormContainer,
@@ -8,7 +8,8 @@ import {
   Form,
   MinimizedFormButton,
   ValidateError,
-} from "./AuthForm.styled"; 
+  LogRegContainer,
+} from "./AuthForm.styled";
 
 export const AuthForm = () => {
   const {
@@ -23,20 +24,35 @@ export const AuthForm = () => {
     handlePasswordChange, // Obsługa zmiany hasła
     handleSubmit,
     handleGoogleLogin,
-    toggleAuthMode,
+    // toggleAuthMode,
     toggleMinimize,
+    showLoginMode,
+    showRegisterMode,
   } = useAuthForm(); // Używamy hooka
 
   return (
     <>
-      {!zoomOut &&  (
+      {!zoomOut && (
         <AuthFormContainer signOut={!!user}>
-                      <HideFormButton onClick={toggleMinimize}>⬇️</HideFormButton>
-          <div>
-            <h2>{isLogin ? "Log in" : "Register"}</h2>
-          </div>
+          <HideFormButton onClick={toggleMinimize}>⬇️</HideFormButton>
+
+          <LogRegContainer>
+            <button onClick={showLoginMode} disabled={isLogin}>
+              Login
+            </button>
+            <button onClick={showRegisterMode} disabled={!isLogin}>
+              Registration
+            </button>
+          </LogRegContainer>
+
+          <h2>{isLogin ? "Log in" : "Register"}</h2>
           <LogInGoogle>
-            <Image src="/google.jpg" alt="google image" width={21} height={20} />
+            <Image
+              src="/google.jpg"
+              alt="google image"
+              width={21}
+              height={20}
+            />
             <button onClick={handleGoogleLogin}>Log in with Google</button>
           </LogInGoogle>
           <Form onSubmit={handleSubmit}>
@@ -57,17 +73,16 @@ export const AuthForm = () => {
             {error && <ValidateError>{error}</ValidateError>}
             <button type="submit">{isLogin ? "Log In" : "Register"}</button>
           </Form>
-          <button onClick={toggleAuthMode}>
-            {isLogin ? "Register" : "Log In"}
-          </button>
         </AuthFormContainer>
       )}
       {zoomOut && (
-        <MinimizedFormButton onClick={toggleMinimize} title="Formularz rejestracji i logowania">
+        <MinimizedFormButton
+          onClick={toggleMinimize}
+          title="Formularz rejestracji i logowania"
+        >
           📝
         </MinimizedFormButton>
       )}
     </>
   );
 };
-

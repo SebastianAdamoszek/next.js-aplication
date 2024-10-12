@@ -12,7 +12,7 @@ export const LogIn = ({ email }) => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      console.log("Użytkownik wylogowany");
+      console.log(`Użytkownik ${email} wylogowany`);
     } catch (error) {
       console.error("Błąd podczas wylogowania", error);
     }
@@ -21,8 +21,7 @@ export const LogIn = ({ email }) => {
   return (
     <Container>
       <TextTitle>
-        Hi ! 
-        <Icon>🙂</Icon>
+        Hi !<Icon>🙂</Icon>
       </TextTitle>
       <TextUser>{email}</TextUser>
       <LogOutButton onClick={handleLogout}>Log out</LogOutButton>
