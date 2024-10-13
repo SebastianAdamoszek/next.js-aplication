@@ -14,7 +14,7 @@ export const AuthFormContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 7px;
-  
+
   animation: incrase 0.5s ease-in-out;
   @keyframes incrase {
     0% {
@@ -46,25 +46,32 @@ export const LogRegContainer = styled.div`
   button {
     cursor: url("/cursor-pionter.svg") pointer;
     padding: 3px 0px;
-    border: 3px solid darkgray;
-    border-radius: 10px;
+    border: 3px solid gray;
     transition: 0.2s ease-in-out;
     text-align: center;
     width: 100px;
 
     &:hover {
-      border: 3px solid black;
+      border: 3px solid darkgray;
       letter-spacing: 0.2px;
     }
 
     &:disabled {
       background-color: gray;
-      color: lightgray;
+      color: gray;
       border: 3px solid gray;
       cursor: url("/icons8-cursor.svg"), auto;
       letter-spacing: normal;
     }
   }
+`;
+
+export const LogButton = styled.button`
+  border-radius: 10px 2px 20px 0px;
+`;
+
+export const RegButton = styled.button`
+  border-radius: 2px 10px 0px 20px;
 `;
 
 export const LogInGoogle = styled.div`
@@ -122,7 +129,7 @@ export const Form = styled.form`
   gap: 5px;
 
   input {
-    background-color: darkgray;
+    background-color: darkgray !important;
     border-radius: 5px;
     border: 1px solid black;
     padding: 1px 5px;
