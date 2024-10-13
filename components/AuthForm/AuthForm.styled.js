@@ -140,6 +140,7 @@ export const Form = styled.form`
   input::placeholder {
     color: black;
   }
+
   button {
     cursor: url("/cursor-pionter.svg") pointer;
     padding: 3px 25px;
