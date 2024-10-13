@@ -8,9 +8,9 @@ export const ChatPageContainer = styled.div`
   border: 3px solid darkgray;
   border-radius: 8px;
   z-index: 1000;
-  transform: scale(0.6);
+  /* transform: scale(0.6); */
   cursor: url("/cursor-grab.png"), grab;
-  margin-top: ${({ isLoggedIn }) => (isLoggedIn ? "-95px" : "")};
+  margin-top: ${({ isLoggedIn }) => (isLoggedIn ? "0px" : "60px")};
   animation: incrase 0.5s ease-in-out;
   @keyframes incrase {
     0% {
@@ -18,8 +18,8 @@ export const ChatPageContainer = styled.div`
     }
   }
   @media (min-width: 768px) {
-    transform: scale(1);
-    margin-top: 0;
+    /* transform: scale(1); */
+    margin-top: ${({ isLoggedIn }) => (isLoggedIn ? "0px" : "-8px")};
   }
 `;
 
