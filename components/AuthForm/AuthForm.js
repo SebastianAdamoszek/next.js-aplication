@@ -9,6 +9,8 @@ import {
   MinimizedFormButton,
   ValidateError,
   LogRegContainer,
+  LogButton,
+  RegButton
 } from "./AuthForm.styled";
 
 export const AuthForm = () => {
@@ -37,12 +39,12 @@ export const AuthForm = () => {
           <HideFormButton onClick={toggleMinimize}>⬇️</HideFormButton>
 
           <LogRegContainer>
-            <button onClick={showLoginMode} disabled={isLogin}>
+            <LogButton onClick={showLoginMode} disabled={isLogin}>
               Login
-            </button>
-            <button onClick={showRegisterMode} disabled={!isLogin}>
+            </LogButton>
+            <RegButton onClick={showRegisterMode} disabled={!isLogin}>
               Registration
-            </button>
+            </RegButton>
           </LogRegContainer>
 
           <h2>{isLogin ? "Log in" : "Register"}</h2>
