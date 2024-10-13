@@ -14,7 +14,7 @@ export const AuthFormContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 7px;
-  /* transform: scale(0.6); */
+  
   animation: incrase 0.5s ease-in-out;
   @keyframes incrase {
     0% {
@@ -22,8 +22,6 @@ export const AuthFormContainer = styled.div`
     }
   }
   @media (min-width: 768px) {
-    /* transform: scale(1); */
-    /* top: 100px; */
     left: 41%;
   }
 `;
