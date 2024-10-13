@@ -8,18 +8,13 @@ export const ChatPageContainer = styled.div`
   border: 3px solid darkgray;
   border-radius: 8px;
   z-index: 1000;
-  /* transform: scale(0.6); */
   cursor: url("/cursor-grab.png"), grab;
-  margin-top: ${({ isLoggedIn }) => (isLoggedIn ? "0px" : "60px")};
+
   animation: incrase 0.5s ease-in-out;
   @keyframes incrase {
     0% {
       transform: scale(0.2);
     }
-  }
-  @media (min-width: 768px) {
-    /* transform: scale(1); */
-    margin-top: ${({ isLoggedIn }) => (isLoggedIn ? "0px" : "-8px")};
   }
 `;
 
@@ -44,7 +39,7 @@ export const HideChatButton = styled.button`
   background: none;
   border: none;
   font-size: 25px;
-  cursor: url('/cursor-pointer.svg'), pointer;
+  cursor: url("/cursor-pointer.svg"), pointer;
   text-align: center;
 `;
 
@@ -59,10 +54,11 @@ export const MinimizedChatButton = styled.button`
     135deg,
     rgba(70, 100, 255, 0.8),
     rgba(70, 100, 255, 0.3)
-  );  border: none;
+  );
+  border: none;
   z-index: 1000;
   font-size: 24px;
-  cursor: url('/cursor-pointer.svg'), pointer;
+  cursor: url("/cursor-pointer.svg"), pointer;
   transition: 0.25s ease-in-out;
 
   animation: slide 0.5s ease-in-out;
@@ -79,8 +75,9 @@ export const MinimizedChatButton = styled.button`
   }
 
   &:hover {
- background-color: rgba(255, 255, 250, 0.5);
-    font-size: 25px;  }
+    background-color: rgba(255, 255, 250, 0.5);
+    font-size: 25px;
+  }
 `;
 
 export const GuestChatContainer = styled.div`
