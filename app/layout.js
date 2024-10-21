@@ -21,16 +21,28 @@ export default function RootLayout({ children }) {
 
     return () => clearTimeout(timer); // Czyszczenie timera
   }, []);
+// Funkcja do efektu paralaksy
+window.addEventListener("scroll", function () {
+  const parallaxSections = document.querySelectorAll('.parallax');
+  
+  parallaxSections.forEach(section => {
+    // Prędkość przesuwania tła
+    let speed = 0.5;
+    // Przesunięcie tła w zależności od przewijania
+    section.style.backgroundPositionY = -(window.scrollY * speed) + 'px';
+  });
+});
 
   return (
     <>
       <html lang="en">
         <body className={inter.className}>
-          {loading ? (
-            <Loader />
-          ) : (
-            <div class="start-layout">
-              <div className={styles.center}>
+          <div class="background">
+            {loading ? (
+              <Loader />
+            ) : (
+              <div class="start-layout">
+                <div className={styles.center}>
                 <Image
                   className={styles.logo}
                   src="/next.svg"
@@ -40,19 +52,22 @@ export default function RootLayout({ children }) {
                   priority
                 />
               </div>
-              <HeaderComponent />
-              <main>{children}</main>
 
-              <footer>
-                <ul className={styles.footer}>
-                  <li>
-                    <p>Footer Content</p>
-                  </li>
-                </ul>
-              </footer>
-              <ChatPage />
-            </div>
-          )}
+                <HeaderComponent />
+                <main>{children}</main>
+                <div class="parallax"></div>
+
+                <footer>
+                  <ul className={styles.footer}>
+                    <li>
+                      <p>Footer Content</p>
+                    </li>
+                  </ul>
+                </footer>
+                <ChatPage />
+              </div>
+            )}
+          </div>
         </body>
       </html>
     </>
