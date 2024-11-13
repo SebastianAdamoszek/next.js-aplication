@@ -46,12 +46,13 @@
 
 .grid {
   display: grid;
+  gap: 15px;
   grid-template-columns: repeat(4, minmax(25%, auto));
-  max-width: 100%;
+  width: 80%;
   width: var(--max-width);
   position: absolute;
+  top: 80px;
   z-index: 50;
-  margin-top: 150px;
 }
 
 .card {
