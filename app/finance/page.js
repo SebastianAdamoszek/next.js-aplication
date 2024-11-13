@@ -1,4 +1,4 @@
-import { Balance } from "@/components/Finance/Bilans/Bilans";
+import { Balance } from "@/components/Finance/Balance/Balance";
 import { ReportSummary } from "@/components/Finance/RaportSummary/RaportSummary";
 import { Income } from "@/components/Finance/Income/Income";
 import { Expenses } from "@/components/Finance/Expenses/Expenses";
@@ -8,10 +8,13 @@ export default function FinancePage() {
   return (
     <div className={styles.main__next}>
       <div className={styles.description}>
-        {/* <Balance />
-        <ReportSummary />
-        <Expenses />
-        <Income /> */}
+        <Balance />
+        {/* <ReportSummary /> */}
+      <div style={{display: "flex"}}>
+      <Income />
+      <Expenses />
+      </div>
+        
       </div>
     </div>
   );
