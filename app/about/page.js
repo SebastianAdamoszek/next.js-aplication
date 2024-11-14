@@ -39,51 +39,63 @@ export default function WorkLogNotebook() {
 
   // Renderowanie komponentu
   return (
-    <div className={`${styles.main__next} ${styles.grid}`}>
-      {user ? (
-        <>
-          <h2>Notatnik Miesięczny Pracy</h2>
-          {[...Array(31).keys()].map((day) => (
-            <div
-              key={day}
-              style={{
-                marginBottom: "20px",
-                border: "1px solid #ccc",
-                padding: "10px",
-              }}
-            >
-              <h3>Dzień {day + 1}</h3>
-              <button onClick={() => addWorkEntry(day + 1)}>
-                Dodaj miejsce pracy
-              </button>
-              {workLog[day + 1] &&
-                workLog[day + 1].map((entry, index) => (
-                  <div key={index} style={{ marginTop: "10px" }}>
-                    <input
-                      type="text"
-                      placeholder="Miejsce pracy"
-                      value={entry.place}
-                      onChange={(e) =>
-                        updateWorkEntry(day + 1, index, "place", e.target.value)
-                      }
-                      style={{ marginRight: "10px" }}
-                    />
-                    <input
-                      type="number"
-                      placeholder="Liczba godzin"
-                      value={entry.hours}
-                      onChange={(e) =>
-                        updateWorkEntry(day + 1, index, "hours", e.target.value)
-                      }
-                    />
-                  </div>
-                ))}
-            </div>
-          ))}
-        </>
-      ) : (
-        <p>Proszę się zalogować, aby zobaczyć ten komponent.</p>
-      )}
+    <div className={styles.main__next}>
+      <div className={styles.description}>
+        {user ? (
+          <>
+            <h2>Notatnik Miesięczny Pracy</h2>
+            {[...Array(31).keys()].map((day) => (
+              <div
+                key={day}
+                style={{
+                  marginBottom: "20px",
+                  border: "1px solid #ccc",
+                  padding: "10px",
+                }}
+              >
+                <h3>Dzień {day + 1}</h3>
+                <button onClick={() => addWorkEntry(day + 1)}>
+                  Dodaj miejsce pracy
+                </button>
+                {workLog[day + 1] &&
+                  workLog[day + 1].map((entry, index) => (
+                    <div key={index} style={{ marginTop: "10px" }}>
+                      <input
+                        type="text"
+                        placeholder="Miejsce pracy"
+                        value={entry.place}
+                        onChange={(e) =>
+                          updateWorkEntry(
+                            day + 1,
+                            index,
+                            "place",
+                            e.target.value
+                          )
+                        }
+                        style={{ marginRight: "10px" }}
+                      />
+                      <input
+                        type="number"
+                        placeholder="Liczba godzin"
+                        value={entry.hours}
+                        onChange={(e) =>
+                          updateWorkEntry(
+                            day + 1,
+                            index,
+                            "hours",
+                            e.target.value
+                          )
+                        }
+                      />
+                    </div>
+                  ))}
+              </div>
+            ))}
+          </>
+        ) : (
+          <p>Proszę się zalogować, aby zobaczyć ten komponent.</p>
+        )}
+      </div>
     </div>
   );
 }
