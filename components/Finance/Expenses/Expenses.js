@@ -1,14 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { collection, addDoc, getDocs, query, where, deleteDoc, doc } from "firebase/firestore";
-import { db, auth } from "../../../firebase/firebase"; 
-import { onAuthStateChanged } from "firebase/auth"; 
+import { collection, addDoc, onSnapshot, query, where, deleteDoc, doc } from "firebase/firestore";
+import { db, auth } from "../../../firebase/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 export const Expenses = () => {
   const [expenses, setExpenses] = useState([]);
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
-  const [user, setUser] = useState(null); // Przechowywanie danych zalogowanego użytkownika
+  const [user, setUser] = useState(null);
 
   // Funkcja do dodawania nowego wydatku do Firestore
   const addExpense = async (e) => {
@@ -24,9 +24,9 @@ export const Expenses = () => {
         });
         setDescription(""); // Wyczyszczenie pola
         setAmount("");
-        fetchExpenses(); // Aktualizacja listy wydatków
       } catch (error) {
         console.error("Błąd dodawania wydatku: ", error);
+        alert("Wystąpił błąd przy dodawaniu wydatku. Spróbuj ponownie.");
       }
     }
   };
@@ -35,46 +35,42 @@ export const Expenses = () => {
   const deleteExpense = async (id) => {
     try {
       await deleteDoc(doc(db, "expenses", id));
-      fetchExpenses(); // Aktualizacja listy po usunięciu
     } catch (error) {
       console.error("Błąd usuwania wydatku: ", error);
+      alert("Wystąpił błąd przy usuwaniu wydatku. Spróbuj ponownie.");
     }
   };
 
-  // Funkcja do pobierania wydatków tylko dla zalogowanego użytkownika
-  const fetchExpenses = async () => {
-    if (user) {
-      try {
-        const q = query(
-          collection(db, "expenses"),
-          where("userId", "==", user.uid)
-        ); // Filtrowanie po UID
-        const querySnapshot = await getDocs(q);
-        const expensesList = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setExpenses(expensesList);
-      } catch (error) {
-        console.error("Błąd pobierania wydatków: ", error);
-      }
-    }
-  };
-
-  // Nasłuchiwanie zmian autoryzacji i ustawianie użytkownika
+  // Nasłuchiwanie zmian w kolekcji wydatków w czasie rzeczywistym
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        fetchExpenses(); // Załaduj wydatki dla zalogowanego użytkownika
+        const expensesQuery = query(
+          collection(db, "expenses"),
+          where("userId", "==", currentUser.uid)
+        );
+
+        // Użycie onSnapshot do nasłuchiwania zmian
+        const unsubscribeSnapshot = onSnapshot(expensesQuery, (querySnapshot) => {
+          const expensesList = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setExpenses(expensesList);
+        }, (error) => {
+          console.error("Błąd podczas nasłuchiwania wydatków: ", error);
+        });
+
+        return () => unsubscribeSnapshot(); // Odsubskrybowanie od nasłuchiwania
       } else {
         setUser(null);
-        setExpenses([]); // Wyczyszczenie wydatków, gdy nikt nie jest zalogowany
+        setExpenses([]); // Czyszczenie wydatków po wylogowaniu
       }
     });
 
-    return () => unsubscribe(); // Odsubskrybuj, gdy komponent się odmontuje
-  }, );
+    return () => unsubscribe(); // Odsubskrybowanie od nasłuchiwania zmian autoryzacji
+  }, []);
 
   return (
     <div>

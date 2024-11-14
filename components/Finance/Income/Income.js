@@ -1,15 +1,15 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { collection, addDoc, getDocs, query, where, deleteDoc, doc } from "firebase/firestore";
-import { db, auth } from "../../../firebase/firebase"; 
-import { onAuthStateChanged } from "firebase/auth"; 
+import { collection, addDoc, onSnapshot, query, where, deleteDoc, doc } from "firebase/firestore";
+import { db, auth } from "../../../firebase/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 export const Income = () => {
   const [income, setIncome] = useState([]);
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
-  const [user, setUser] = useState(null); // Przechowywanie danych zalogowanego użytkownika
-  
+  const [user, setUser] = useState(null);
+
   // Funkcja do dodawania nowego przychodu do Firestore
   const addIncome = async (e) => {
     e.preventDefault();
@@ -22,11 +22,11 @@ export const Income = () => {
           createdAt: new Date(),
           userId: user.uid,
         });
-        setDescription(""); 
+        setDescription(""); // Wyczyszczenie pola
         setAmount("");
-        fetchIncome(); // Aktualizacja listy przychodów
       } catch (error) {
         console.error("Błąd dodawania przychodu: ", error);
+        alert("Wystąpił błąd przy dodawaniu przychodu. Spróbuj ponownie.");
       }
     }
   };
@@ -35,45 +35,42 @@ export const Income = () => {
   const deleteIncome = async (id) => {
     try {
       await deleteDoc(doc(db, "income", id));
-      fetchIncome(); // Aktualizacja listy po usunięciu
     } catch (error) {
       console.error("Błąd usuwania przychodu: ", error);
+      alert("Wystąpił błąd przy usuwaniu przychodu. Spróbuj ponownie.");
     }
   };
 
-  // Funkcja do pobierania przychodów tylko dla zalogowanego użytkownika
-  const fetchIncome = async () => {
-    if (user) {
-      try {
-        const q = query(
-          collection(db, "income"),
-          where("userId", "==", user.uid)
-        );
-        const querySnapshot = await getDocs(q);
-        const incomeList = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setIncome(incomeList);
-      } catch (error) {
-        console.error("Błąd pobierania przychodów: ", error);
-      }
-    }
-  };
-
+  // Nasłuchiwanie zmian w kolekcji przychodów w czasie rzeczywistym
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        fetchIncome(); 
+        const incomeQuery = query(
+          collection(db, "income"),
+          where("userId", "==", currentUser.uid)
+        );
+
+        // Użycie onSnapshot do nasłuchiwania zmian
+        const unsubscribeSnapshot = onSnapshot(incomeQuery, (querySnapshot) => {
+          const incomeList = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setIncome(incomeList);
+        }, (error) => {
+          console.error("Błąd podczas nasłuchiwania przychodów: ", error);
+        });
+
+        return () => unsubscribeSnapshot(); // Odsubskrybowanie od nasłuchiwania
       } else {
         setUser(null);
-        setIncome([]); 
+        setIncome([]); // Czyszczenie przychodów po wylogowaniu
       }
     });
 
-    return () => unsubscribe(); 
-  }, );
+    return () => unsubscribe(); // Odsubskrybowanie od nasłuchiwania zmian autoryzacji
+  }, []);
 
   return (
     <div>
@@ -100,10 +97,10 @@ export const Income = () => {
 
           {/* Wyświetlanie listy przychodów */}
           <ul>
-            {income.map((income) => (
-              <li key={income.id}>
-                {income.description}: {income.amount} zł
-                <button onClick={() => deleteIncome(income.id)}>Usuń</button>
+            {income.map((inc) => (
+              <li key={inc.id}>
+                {inc.description}: {inc.amount} zł
+                <button onClick={() => deleteIncome(inc.id)}>Usuń</button>
               </li>
             ))}
           </ul>
