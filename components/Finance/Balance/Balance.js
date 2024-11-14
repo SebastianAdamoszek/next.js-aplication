@@ -64,11 +64,21 @@ export const Balance = () => {
   return (
     <div>
       <h3>Bilans finansowy</h3>
-      <p>
+      <p style={{ margin: "10px 0" }}>
         <strong>Bilans: {balance.toFixed(2)} PLN</strong>
       </p>
-      <p>Całkowite przychody: {totalIncome.toFixed(2)} PLN</p>
-      <p>Całkowite wydatki: {totalExpenses.toFixed(2)} PLN</p>
+      <div
+        style={{
+          display: "flex",
+          alignItem: "center",
+          justifyContent: "center",
+          gap: "10px",
+          margin: "5px  0",
+        }}
+      >
+        <p>Całkowite przychody: {totalIncome.toFixed(2)} PLN</p>
+        <p>Całkowite wydatki: {totalExpenses.toFixed(2)} PLN</p>
+      </div>
     </div>
   );
 };

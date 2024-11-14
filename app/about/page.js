@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { db, auth } from "@/firebase/firebase";
 import styles from "../page.module.css";
 import React, { useState, useEffect } from "react";
@@ -6,14 +6,19 @@ import { onAuthStateChanged } from "firebase/auth";
 
 export default function WorkLogNotebook() {
   const [workLog, setWorkLog] = useState({}); // Struktura danych do przechowywania logów pracy
-  const [user, setUser] = useState(null); // Przechowywanie danych zalogowanego użytkownika
+  const [user, setUser] = useState(null);
+  const allowedUserId = process.env.NEXT_PUBLIC_MY_ID;
 
-  // Sprawdzenie, czy użytkownik jest zalogowany
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
     });
-    return () => unsubscribe(); // Odsubskrybuj, gdy komponent się odmontuje
+
+    return () => unsubscribe();
   }, []);
 
   // Funkcja dodawania nowego wpisu do danego dnia
@@ -37,13 +42,66 @@ export default function WorkLogNotebook() {
     });
   };
 
+  const exportToJsonFile = (data) => {
+    const fileData = JSON.stringify(data, null, 2);
+    const blob = new Blob([fileData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+  
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'workLog.json';
+    document.body.appendChild(link);
+    link.click();
+  
+    document.body.removeChild(link);
+  };
+
+  const importFromJsonFile = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsedData = JSON.parse(e.target.result);
+          setWorkLog(parsedData);
+        } catch (error) {
+          console.error("Błąd parsowania pliku JSON", error);
+        }
+      };
+      reader.readAsText(file);
+    }
+  };
+
+  useEffect(() => {
+    // Przywrócenie danych z localStorage po załadowaniu komponentu
+    const savedLog = localStorage.getItem('workLog');
+    if (savedLog) {
+      setWorkLog(JSON.parse(savedLog));
+    }
+  }, []);
+  
+  useEffect(() => {
+    // Zapis danych do localStorage po każdej aktualizacji `workLog`
+    localStorage.setItem('workLog', JSON.stringify(workLog));
+  }, [workLog]);
+  
+
   // Renderowanie komponentu
   return (
     <div className={styles.main__next}>
       <div className={styles.description}>
-        {user ? (
+        {user && user.uid === allowedUserId ? (
           <>
             <h2>Notatnik Miesięczny Pracy</h2>
+            <button onClick={() => exportToJsonFile(workLog)}>
+              Eksportuj dane do pliku JSON
+            </button>
+            <input 
+              type="file" 
+              accept=".json"
+              onChange={importFromJsonFile} 
+              style={{ marginTop: "10px" }}
+            />
             {[...Array(31).keys()].map((day) => (
               <div
                 key={day}
@@ -65,12 +123,7 @@ export default function WorkLogNotebook() {
                         placeholder="Miejsce pracy"
                         value={entry.place}
                         onChange={(e) =>
-                          updateWorkEntry(
-                            day + 1,
-                            index,
-                            "place",
-                            e.target.value
-                          )
+                          updateWorkEntry(day + 1, index, "place", e.target.value)
                         }
                         style={{ marginRight: "10px" }}
                       />
@@ -79,12 +132,7 @@ export default function WorkLogNotebook() {
                         placeholder="Liczba godzin"
                         value={entry.hours}
                         onChange={(e) =>
-                          updateWorkEntry(
-                            day + 1,
-                            index,
-                            "hours",
-                            e.target.value
-                          )
+                          updateWorkEntry(day + 1, index, "hours", e.target.value)
                         }
                       />
                     </div>
@@ -93,7 +141,7 @@ export default function WorkLogNotebook() {
             ))}
           </>
         ) : (
-          <p>Proszę się zalogować, aby zobaczyć ten komponent.</p>
+          <p>Nie masz dostępu do tego komponentu.</p>
         )}
       </div>
     </div>

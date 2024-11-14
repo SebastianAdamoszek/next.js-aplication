@@ -9,30 +9,33 @@ export const ReportSummary = () => {
   const [totalExpenses, setTotalExpenses] = useState(0);
   const [totalIncome, setTotalIncome] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async (uid) => {
       setIsLoading(true);
+      setError(null);
       try {
         // Fetch expenses
         const expensesQuery = query(collection(db, 'expenses'), where('userId', '==', uid));
         const expensesSnapshot = await getDocs(expensesQuery);
-        let expensesTotal = 0;
-        expensesSnapshot.forEach((doc) => {
-          expensesTotal += doc.data().amount;
-        });
+        const expensesTotal = expensesSnapshot.docs.reduce((sum, doc) => {
+          const amount = doc.data().amount;
+          return sum + (typeof amount === 'number' ? amount : 0);
+        }, 0);
         setTotalExpenses(expensesTotal);
 
         // Fetch income
         const incomeQuery = query(collection(db, 'income'), where('userId', '==', uid));
         const incomeSnapshot = await getDocs(incomeQuery);
-        let incomeTotal = 0;
-        incomeSnapshot.forEach((doc) => {
-          incomeTotal += doc.data().amount;
-        });
+        const incomeTotal = incomeSnapshot.docs.reduce((sum, doc) => {
+          const amount = doc.data().amount;
+          return sum + (typeof amount === 'number' ? amount : 0);
+        }, 0);
         setTotalIncome(incomeTotal);
       } catch (error) {
         console.error('Błąd pobierania danych: ', error);
+        setError('Wystąpił błąd podczas ładowania danych.');
       } finally {
         setIsLoading(false);
       }
@@ -57,6 +60,8 @@ export const ReportSummary = () => {
     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '20px' }}>
       {isLoading ? (
         <p>Ładowanie danych...</p>
+      ) : error ? (
+        <p>{error}</p>
       ) : (
         <>
           <div>
