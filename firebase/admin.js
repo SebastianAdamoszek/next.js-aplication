@@ -53,7 +53,7 @@ onMessage(messaging, (payload) => {
 });
 
 Notification.requestPermission().then((permission) => {
-  if (permission === 'granted') {
+  if (permission === 'granted', permission) {
     console.log('Permission granted');
     saveTokenToFirestore(); // Zapisz token FCM, jeśli użytkownik wyraził zgodę
   } else {

@@ -22,6 +22,19 @@ export default function RootLayout({ children }) {
     return () => clearTimeout(timer); // Czyszczenie timera
   }, []);
 
+  // Rejestracja service worker
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        .then((registration) => {
+          console.log('Service worker registered:', registration);
+        })
+        .catch((error) => {
+          console.error('Service worker registration failed:', error);
+        });
+    }
+  }, []);
+
   return (
     <>
       <html lang="en">
@@ -29,7 +42,7 @@ export default function RootLayout({ children }) {
           {loading ? (
             <Loader />
           ) : (
-            <div class="start-layout">
+            <div className="start-layout">
               <div className={styles.center}>
                 <Image
                   className={styles.logo}
