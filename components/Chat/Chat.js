@@ -8,7 +8,8 @@ import {
   setDoc,
   doc,
 } from "firebase/firestore";
-import { db, auth } from "../../firebase/firebase";
+import { db, auth, messaging } from "../../firebase/firebase";
+import { getToken } from "firebase/messaging";
 import {
   Container,
   Messages,
@@ -66,6 +67,25 @@ export const Chat = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  const requestNotificationPermission = async () => {
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        const token = await getToken(messaging, {
+          vapidKey: "YOUR_VAPID_KEY", // Musisz dodać swój klucz VAPID z konsoli Firebase
+        });
+        console.log("Token FCM:", token);
+  
+        // Teraz możesz zapisać token w bazie danych (np. w Firestore), aby później wysyłać powiadomienia
+      } else {
+        console.log("Brak zgody na powiadomienia");
+      }
+    } catch (error) {
+      console.error("Błąd podczas uzyskiwania zgody na powiadomienia:", error);
+    }
+  };
+
 
   return (
     <Container>
