@@ -134,8 +134,9 @@ ul {
   list-style: none;
 }
 button {
-  margin: 0 5px;
-}
+  cursor: pointer;
+  color: var(--foreground-rgb);
+  background-color: rgb(46, 46, 46);}
  input {
   margin: 3px 0;
  }
@@ -159,6 +160,7 @@ p {
   color: rgb(var(--foreground-rgb));
   text-shadow: 4px 4px 3px rgba(0, 0, 0, 1);
   transition: 150ms ease-in-out;
+  text-align: center;
 }
 
 html,
@@ -211,3 +213,6 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #000 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+
+

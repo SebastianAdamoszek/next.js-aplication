@@ -13,10 +13,10 @@ export const Icon = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-size: 35px;
   transition: 0.2s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.05); // Minimalnie większe skalowanie dla wyraźniejszego efektu
     background-color: rgba(150, 150, 150, 0.6); // Zmiana koloru na ciemniejszy odcień
   }
 `;
-

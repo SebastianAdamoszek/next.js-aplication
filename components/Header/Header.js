@@ -5,14 +5,12 @@ import { AuthStatus } from "../AuthStatus/AuthStatus.js";
 import { Authorization } from "../../firebase/Authorization.js";
 import Link from "next/link";
 import { ThemeSwitcher } from "@/components/Header/Menu/Themes/Theme.js";
-import { AuthForm } from "../AuthForm/AuthForm.js";
 
 export const HeaderComponent = () => {
   return (
     <Header>
       <MenuComponent />
       <AuthStatus />
-      <AuthForm />
       <div>
         <HeaderIcons>
           <Link href="https://www.facebook.com/" target="_blank">
