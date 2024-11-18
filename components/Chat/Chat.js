@@ -73,7 +73,7 @@ export const Chat = () => {
       const permission = await Notification.requestPermission();
       if (permission === "granted") {
         const token = await getToken(messaging, {
-          vapidKey: "YOUR_VAPID_KEY", // Musisz dodać swój klucz VAPID z konsoli Firebase
+          vapidKey: "x57oO_7GYjHbt5SNwMhVxi5HUsQtZTYjW4FSp78JsZ0", // Musisz dodać swój klucz VAPID z konsoli Firebase
         });
         console.log("Token FCM:", token);
   
