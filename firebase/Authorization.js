@@ -44,18 +44,31 @@ export const registerUser = async (email, password) => {
 export const loginWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
-    return { success: true, user: result.user };
+    const user = result.user; // Pobieramy obiekt użytkownika z wyniku logowania
+
+    console.log(`Użytkownik ${user.email} zalogowany`);
+    return { success: true, user };
   } catch (error) {
-    console.log("Błąd podczas logowania");
+    console.log(`Błąd podczas logowania: ${error.message}`);
     return { success: false, message: error.message };
   }
 };
 
+/**
+ * Wylogowanie użytkownika
+ */
 export const handleLogout = async () => {
   try {
-    await signOut(auth);
-    console.log(`Użytkownik ${email} wylogowany`);
+    const user = auth.currentUser; // Pobieramy obecnie zalogowanego użytkownika
+    if (user) {
+      await signOut(auth);
+      console.log(`Użytkownik ${user.email} wylogowany`);
+      alert("Pomyślnie wylogowano!");
+
+    } else {
+      console.log("Nie można wylogować, brak zalogowanego użytkownika");
+    }
   } catch (error) {
-    console.error("Błąd podczas wylogowania", error);
+    console.error("Błąd", error);
   }
 };

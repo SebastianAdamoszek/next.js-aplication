@@ -1,5 +1,6 @@
 import { signOut } from "firebase/auth";
 import { auth } from "@/firebase/firebase";
+import { handleLogout } from "@/firebase/Authorization";
 import {
   Container,
   TextTitle,
@@ -10,29 +11,14 @@ import {
 
 export const LoggedIn = ({ email }) => {
   const user = auth.currentUser;
-  
-  // do poprawy nie dziala ten sposob
-  const photoURL = "/bilon.png" || user?.photoURL ;
 
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      console.log(`Użytkownik ${email} wylogowany`);
-      alert("Pomyślnie wylogowano!");
-    } catch (error) {
-      console.error("Błąd podczas wylogowania", error);
-      alert("Wystąpił błąd podczas wylogowania.");
-    }
-  };
+  // do poprawy nie dziala ten sposob
+  const photoURL = "/bilon.png" || user?.photoURL;
 
   return (
     <Container>
       <TextTitle>
-        Hi !{" "}
-        <Avatar
-          src={photoURL}
-          alt="Avatar użytkownika"
-        />
+        Hi ! <Avatar src={photoURL} alt="Avatar użytkownika" />
       </TextTitle>
       <TextUser>{email || "Użytkownik"}</TextUser>
       <LogOutButton onClick={handleLogout}>Log out</LogOutButton>
