@@ -86,7 +86,6 @@ export const Chat = () => {
     }
   };
   
-
   return (
     <Container>
       <Messages>

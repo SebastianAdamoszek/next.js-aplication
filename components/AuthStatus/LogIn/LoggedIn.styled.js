@@ -26,13 +26,31 @@ export const TextUser = styled.span`
   overflow: hidden;
   width: 70px;
   text-align: center;
+  z-index: 1;
 
   &:hover {
     width: auto;
     background-color: rgba(50, 0, 0, 0.5);
   }
 `;
+export const AvatarsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 1rem 0;
+`;
 
+export const AvatarOption = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
 export const LogOutButton = styled.button`
   font-size: 8px;
   cursor: url("/cursor-pointer.svg") pointer;
@@ -51,4 +69,13 @@ export const LogOutButton = styled.button`
 export const Icon = styled.span`
   font-size: 17px;
   padding: 0 0 0 10px;
+`;
+
+export const Avatar = styled.img`
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  /* border-radius: 50%; */
+  object-fit: cover;
+  margin-bottom: 10px;
 `;

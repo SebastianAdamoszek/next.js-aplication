@@ -160,7 +160,6 @@ p {
   color: rgb(var(--foreground-rgb));
   text-shadow: 4px 4px 3px rgba(0, 0, 0, 1);
   transition: 150ms ease-in-out;
-  text-align: center;
 }
 
 html,
