@@ -1,4 +1,3 @@
-import { signOut } from "firebase/auth";
 import { auth } from "@/firebase/firebase";
 import { handleLogout } from "@/firebase/Authorization";
 import {
