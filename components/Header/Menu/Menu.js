@@ -16,32 +16,32 @@ export const MenuComponent = () => {
   };
   return (
     <Menu>
-      <Burger onClick={toggleMenu} isOpen={isOpen}>
+      {/* <Burger onClick={toggleMenu} isOpen={isOpen}>
         <BurgerLine className="first" />
         <BurgerLine className="second" />
         <BurgerLine className="third" />
-      </Burger>
+      </Burger> */}
       <Nav isOpen={isOpen}>
-        <li>
+        {/* <li>
           <Link href="/home" onClick={closeMenu}>
             <p>Home</p>
           </Link>
-        </li>
+        </li> */}
         <li>
-          <Link href="/about" onClick={closeMenu}>
-            <p>About</p>
+          <Link href="/worklog" onClick={closeMenu}>
+            <p>Worklog</p>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/contact" onClick={closeMenu}>
               <p>Contact</p>                       
           </Link>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <Link href="/gallery" onClick={closeMenu}>
             <p>Gallery</p>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/finance" onClick={closeMenu}>
             <p>Finance</p>

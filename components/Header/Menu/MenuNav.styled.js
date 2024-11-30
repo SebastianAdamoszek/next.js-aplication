@@ -6,7 +6,7 @@ export const Menu = styled.div`
   align-items: center;
 `;
 export const Nav = styled.ul`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
@@ -42,9 +42,9 @@ export const Nav = styled.ul`
           color: auto;
         }
     }   
-`}
+`} */
 
-  @media (min-width: 768px) {
+  @media (min-width: 240px) {
     position: static;
     display: flex;
     flex-direction: row;

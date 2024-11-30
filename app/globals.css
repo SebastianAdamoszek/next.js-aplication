@@ -121,12 +121,11 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-*
- {
+* {
   margin: 0;
   padding: 0;
- }
- 
+}
+
 ul {
   box-sizing: border-box;
   padding: 2px;
@@ -136,10 +135,11 @@ ul {
 button {
   cursor: pointer;
   color: var(--foreground-rgb);
-  background-color: rgb(46, 46, 46);}
- input {
+  background-color: rgb(46, 46, 46);
+}
+input {
   margin: 3px 0;
- }
+}
 
 a {
   color: inherit;
@@ -176,7 +176,7 @@ html,
 
 .loading-text {
   font-size: 24px;
-  background: linear-gradient(90deg, #3498db, #9b59b6);
+  background: linear-gradient(90deg, #8f7644, #403f41);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
@@ -193,18 +193,22 @@ html,
   }
 }
 
+@keyframes rotate {
+  0% {
+    transform: scale(0.3) rotate(720deg);
+  }
+}
+
 /* @media (prefers-reduced-motion) {
   .card:hover span {
     transform: none;
   }
 } */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus
-input:-webkit-autofill, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
 textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
-textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
@@ -212,6 +216,3 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #000 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
-
-
-

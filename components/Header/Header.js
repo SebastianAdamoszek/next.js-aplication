@@ -10,9 +10,10 @@ export const HeaderComponent = () => {
   return (
     <Header>
       <MenuComponent />
-      <AuthStatus />
+      <AuthStatus /> 
+      <ThemeSwitcher />
       <div>
-        <HeaderIcons>
+        {/* <HeaderIcons>
           <Link href="https://www.facebook.com/" target="_blank">
             <svg width="30" height="20" fill="#505050" aria-hidden="true">
               <use xlinkHref={`/icons.svg#icon-facebook-1`} />
@@ -33,8 +34,7 @@ export const HeaderComponent = () => {
               <use xlinkHref={`/icons.svg#icon-instagram-2`} />
             </svg>
           </Link>
-          <ThemeSwitcher />
-        </HeaderIcons>
+        </HeaderIcons> */}
       </div>
     </Header>
   );

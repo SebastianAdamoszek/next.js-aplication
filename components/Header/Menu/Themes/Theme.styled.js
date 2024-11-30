@@ -11,7 +11,7 @@ export const ThemeContainer = styled.div`
 `;
 
 export const BtnDark = styled.button`
-  background-color: black;
+  background-color: rgb(7,10,119);
   border-radius: 5px;
   width: 20px;
   height: 10px;
@@ -19,7 +19,7 @@ export const BtnDark = styled.button`
 `;
 
 export const BtnLight = styled.button`
-  background-color: white;
+  background-color: rgb(100,200,200);
   border-radius: 5px;
   width: 20px;
   height: 10px;

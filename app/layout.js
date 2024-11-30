@@ -46,10 +46,10 @@ export default function RootLayout({ children }) {
               <div className={styles.center}>
                 <Image
                   className={styles.logo}
-                  src="/next.svg"
-                  alt="Next.js Logo"
+                  src="/bilon.png"
+                  alt="5zł"
                   width={180}
-                  height={37}
+                  height={180}
                   priority
                 />
               </div>
@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
                   </li>
                 </ul>
               </footer>
-              <ChatPage />
+              {/* <ChatPage /> */}
             </div>
           )}
         </body>
