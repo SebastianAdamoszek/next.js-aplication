@@ -57,6 +57,11 @@ export const Balance = () => {
     return () => unsubscribeAuth();
   }, []);
 
+  const BalanceContainer = styled.div`
+  margin: 0px auto 30px;
+  width: 90%;
+  `
+
   // Update balance whenever income or expenses change
   useEffect(() => {
     setBalance(totalIncome - totalExpenses);
@@ -83,7 +88,3 @@ export const Balance = () => {
     </BalanceContainer>
   );
 };
- const BalanceContainer = styled.div`
- margin: 0px auto 30px;
- width: 90%;
- `

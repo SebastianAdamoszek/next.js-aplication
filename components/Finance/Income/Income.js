@@ -135,6 +135,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
+  div {
+    margin: 0 auto;
+  }
+
   form {
     display: flex;
     flex-direction: column;

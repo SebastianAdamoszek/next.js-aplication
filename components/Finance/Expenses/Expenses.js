@@ -91,7 +91,6 @@ export const Expenses = () => {
 
       {user ? (
         <div>
-          {/* Formularz dodawania wydatków */}
           <form onSubmit={addExpense}>
             <input
               type="text"
@@ -100,19 +99,20 @@ export const Expenses = () => {
               onChange={(e) => setDescription(e.target.value)}
             />
             <div>
-              <input
-                type="number"
-                placeholder="Kwota"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-              />
+              <div>
+                <input
+                  type="number"
+                  placeholder="Kwota"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
+              </div>
               <div>
                 <button type="submit">Dodaj wydatek</button>
               </div>
             </div>
           </form>
 
-          {/* Wyświetlanie listy wydatków */}
           <ul>
             {expenses.map((expense) => (
               <li key={expense.id}>
@@ -134,6 +134,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  div {
+    margin: 0 auto;
+  }
 
   form {
     display: flex;
@@ -169,6 +173,8 @@ const Container = styled.div`
 
     div {
       display: flex;
+      justify-content: center;
+      align-items: center;
       gap: 8px;
     }
   }
@@ -186,14 +192,13 @@ const Container = styled.div`
       justify-content: flex-start;
       justify-content: space-between;
       border-bottom: 1px dashed;
-      padding: 5px ;
+      padding: 5px;
       border-radius: 5px;
       transition: 0.2s ease-in-out;
 
-       &:hover {
+      &:hover {
         box-shadow: 0 0 10px gray;
-
-       } 
+      }
     }
 
     button {
