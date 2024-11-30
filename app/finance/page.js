@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { auth } from "@/firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { Balance } from "@/components/Finance/Balance/Balance";
-import { ReportSummary } from "@/components/Finance/RaportSummary/RaportSummary";
 import { Income } from "@/components/Finance/Income/Income";
 import { Expenses } from "@/components/Finance/Expenses/Expenses";
 import styles from "../page.module.css";
@@ -31,12 +30,9 @@ export default function FinancePage() {
           {user && user.uid === allowedUserId ? (
             <div>
               <Balance />
-              {/* <ReportSummary /> */}
-              <div style={{ display: "flex", justifyContent: "space-arround"}}>
                 <Income />
                 <Expenses />
               </div>
-            </div>
           ) : (
             <p>Nie masz dostępu do tego komponentu.</p>
           )}

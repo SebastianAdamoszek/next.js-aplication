@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { db, auth } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -62,7 +63,7 @@ export const Balance = () => {
   }, [totalIncome, totalExpenses]);
 
   return (
-    <div>
+    <BalanceContainer>
       <h3>Bilans finansowy</h3>
       <p style={{ margin: "10px 0" }}>
         <strong>Bilans: {balance.toFixed(2)} PLN</strong>
@@ -79,6 +80,10 @@ export const Balance = () => {
         <p>Całkowite przychody: {totalIncome.toFixed(2)} PLN</p>
         <p>Całkowite wydatki: {totalExpenses.toFixed(2)} PLN</p>
       </div>
-    </div>
+    </BalanceContainer>
   );
 };
+ const BalanceContainer = styled.div`
+ margin: 0px auto 30px;
+ width: 90%;
+ `
