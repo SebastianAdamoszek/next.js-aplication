@@ -6,7 +6,15 @@ import "@/app/globals.css";
 
 export const Loader = () => {
   return (
-    <div style={{ backgroundColor: "gray", borderRadius: "50%",border: '20px double #8f7644' }}>
+    <div
+      style={{
+        backgroundColor: "gray",
+        borderRadius: "50%",
+        border: "20px double #8f7644",
+        aspectRatio: "1/1",
+        width: "100%",
+      }}
+    >
       <div style={loaderStyle}>
         <Image
           style={img}
