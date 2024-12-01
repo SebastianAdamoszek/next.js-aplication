@@ -109,7 +109,7 @@ export default function WorkLogNotebook() {
                 flexWrap: "wrap",
                 gap: "10px",
                 alignItems:"center",
-                justifyContent:"flex-start",
+                justifyContent:"space-around",
                 width: "100%",
               }}
             >
@@ -119,9 +119,7 @@ export default function WorkLogNotebook() {
                   style={{
                     marginBottom: "20px",
                     border: "1px solid #ccc",
-                    padding: "10px",
-                    backgroundColor:"#08043dcc",
-
+                    backgroundColor:"#08043dcc",                    
                   }}
                 >
                   <h3>Dzień {day + 1}</h3>
