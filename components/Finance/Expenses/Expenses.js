@@ -132,7 +132,7 @@ export const Expenses = () => {
               onChange={(e) => setAmount(e.target.value)}
             />
           </form>
-          <ButtonAdd type="submit">Dodaj wydatek</ButtonAdd>
+          <ButtonAdd type="submit">Dodaj wydatek </ButtonAdd>
 
           <ul>
             {expenses.map((expense) => (
