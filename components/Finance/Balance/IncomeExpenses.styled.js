@@ -24,7 +24,7 @@ export const LinkContainer = styled.div`
 export const LinkBack = styled.div`
   position: relative;
   top: -60px;
-  left: -40%;
+  left: -35%;
   box-shadow: 0 0 10px gray;
   border-radius: 5px;
 

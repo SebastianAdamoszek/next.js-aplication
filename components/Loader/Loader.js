@@ -9,14 +9,10 @@ export const Loader = () => {
     <div
       style={{
         backgroundColor: "gray",
-        borderRadius: "50%",
         border: "20px double #8f7644",
-        aspectRatio: "1/1",
-        width: "50%",
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
+        // aspectRatio: "1/1",
+        width: "90%",
+        margin: "100px auto",
       }}
     >
       <div style={loaderStyle}>
@@ -39,7 +35,7 @@ const loaderStyle = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  height: "100vh",
+  height: "80vh",
 };
 const img = {
   position: "relative",
