@@ -98,7 +98,7 @@ export const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.4);
 
     li {
-      width: 300px;
+      width: 290px;
       display: flex;
       justify-content: flex-start;
       justify-content: space-between;
