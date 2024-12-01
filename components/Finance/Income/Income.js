@@ -130,7 +130,9 @@ export const Income = () => {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
             />
-            <ButtonAdd type="submit">Dodaj przychód</ButtonAdd>
+            <ButtonAdd type="submit">
+              Dodaj <span style={{ display: "block" }}>przychód</span>
+            </ButtonAdd>
           </form>
 
           <ul>

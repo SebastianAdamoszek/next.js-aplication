@@ -131,7 +131,9 @@ export const Expenses = () => {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
             />
-            <ButtonAdd type="submit">Dodaj wydatek </ButtonAdd>
+            <ButtonAdd type="submit">
+              Dodaj <span style={{ display: "block" }}>wydatek</span>
+            </ButtonAdd>
           </form>
 
           <ul>
