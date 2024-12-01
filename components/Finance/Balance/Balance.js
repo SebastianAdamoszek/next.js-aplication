@@ -59,10 +59,11 @@ export const Balance = () => {
 
   const BalanceContainer = styled.div`
     margin: 0px auto 30px;
-    width: 90%;
+    width: 80%;
      p {
       box-shadow: 0 0 10px gray;
-
+      font-weight: 700;
+      font-size: 14px;
     }
   `;
 

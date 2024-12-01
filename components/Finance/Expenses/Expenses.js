@@ -7,6 +7,7 @@ import {
   SpanExpenses,
   StyledCurlyBracket,
   Exspan,
+  ButtonAdd,
 } from "../Balance/IncomeExpenses.styled";
 import {
   collection,
@@ -124,20 +125,14 @@ export const Expenses = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <div>
-              <div>
-                <input
-                  type="number"
-                  placeholder="Kwota"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                />
-              </div>
-              <div>
-                <button type="submit">Dodaj wydatek</button>
-              </div>
-            </div>
+            <input
+              type="number"
+              placeholder="Kwota"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
           </form>
+          <ButtonAdd type="submit">Dodaj wydatek</ButtonAdd>
 
           <ul>
             {expenses.map((expense) => (

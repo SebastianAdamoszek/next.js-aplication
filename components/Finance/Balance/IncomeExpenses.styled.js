@@ -33,7 +33,24 @@ export const LinkBack = styled.div`
     border-radius: 5px;
   }
 `;
+export const ButtonAdd = styled.button`
+  width: 110px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px white;
+  border: none;
+  padding: 10px 10px;
 
+  transition: 0.3s ease-in-out;
+
+  position: relative;
+  top: -62px;
+  left: 90px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0 0 10px gray;
+  }
+`;
 export const Container = styled.div`
   width: 100%;
   display: flex;
@@ -47,47 +64,38 @@ export const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 5px;
+    margin-left: 15px;
 
     input {
       border-radius: 5px;
       border: none;
       box-shadow: 0 0 3px white;
       transition: 0.3s ease-in-out;
-      padding: 2px 5px;
+      padding: 5px;
       &:hover {
         background-color: rgba(0, 0, 0, 1);
         box-shadow: 0 0 10px gray;
       }
-    }
-
-    button {
-      width: 110px;
-      border-radius: 5px;
-      background-color: rgba(0, 0, 0, 0.3);
-      box-shadow: 0 0 3px white;
-      border: none;
-      transition: 0.3s ease-in-out;
-      &:hover {
-        background-color: rgba(0, 0, 0, 1);
-        box-shadow: 0 0 10px gray;
-      }
-    }
-
-    div {
-      display: flex;
-      gap: 8px;
     }
   }
 
   ul {
-    padding: 10px;
+    margin-top: -35px;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
     text-align: left;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 0 10px gray;
+    background-color: rgba(0, 0, 0, 0.4);
 
     li {
       width: 300px;

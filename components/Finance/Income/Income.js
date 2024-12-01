@@ -6,6 +6,7 @@ import {
   LinkBack,
   StyledCurlyBracket,
   Inspan,
+  ButtonAdd,
 } from "../Balance/IncomeExpenses.styled";
 import {
   collection,
@@ -104,7 +105,7 @@ export const Income = () => {
       </LinkContainer>
       <LinkBack>
         <Link href="/finance">
-        <p>Tylko Bilans</p>
+          <p>Tylko Bilans</p>
         </Link>
       </LinkBack>
 
@@ -116,8 +117,6 @@ export const Income = () => {
 
       {user ? (
         <div>
-          {/* Formularz dodawania przychodów */}
-
           <form onSubmit={addIncome}>
             <input
               type="text"
@@ -125,18 +124,15 @@ export const Income = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <div>
-              <input
-                type="number"
-                placeholder="Kwota"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-              />
-              <button type="submit">Dodaj przychód</button>
-            </div>
+            <input
+              type="number"
+              placeholder="Kwota"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
           </form>
+          <ButtonAdd type="submit">Dodaj przychód</ButtonAdd>
 
-          {/* Wyświetlanie listy przychodów */}
           <ul>
             {income.map((inc) => (
               <li key={inc.id}>
