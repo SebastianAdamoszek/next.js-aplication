@@ -12,7 +12,11 @@ export const Loader = () => {
         borderRadius: "50%",
         border: "20px double #8f7644",
         aspectRatio: "1/1",
-        width: "100%",
+        width: "50%",
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
       }}
     >
       <div style={loaderStyle}>
