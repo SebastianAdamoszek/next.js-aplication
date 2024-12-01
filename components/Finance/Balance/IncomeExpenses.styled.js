@@ -44,8 +44,8 @@ export const ButtonAdd = styled.button`
   transition: 0.3s ease-in-out;
 
   position: relative;
-  top: -62px;
-  left: 93px;
+  top: -65px;
+  left: 185px;
   &:hover {
     background-color: rgba(0, 0, 0, 1);
     box-shadow: 0 0 10px gray;
