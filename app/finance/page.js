@@ -56,6 +56,7 @@ const LinkContainer = styled.div`
   justify-content: center;
 
   p {
+    width: 75px;
     border: none;
     border-radius: 0;
     box-shadow: 0 0 10px gray;

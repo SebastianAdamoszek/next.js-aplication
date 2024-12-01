@@ -7,6 +7,7 @@ export const LinkContainer = styled.div`
   p {
     border: none;
     border-radius: 0;
+    width: 75px;
   }
   a {
     line-height: 0;
