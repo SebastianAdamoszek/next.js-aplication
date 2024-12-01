@@ -1,6 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import {
+  LinkContainer,
+  LinkBack,
+  Container,
+  SpanExpenses,
+  StyledCurlyBracket,
+  Exspan,
+} from "../Balance/IncomeExpenses.styled";
 import {
   collection,
   addDoc,
@@ -12,6 +19,7 @@ import {
 } from "firebase/firestore";
 import { db, auth } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import Link from "next/link";
 
 export const Expenses = () => {
   const [expenses, setExpenses] = useState([]);
@@ -87,6 +95,24 @@ export const Expenses = () => {
 
   return (
     <Container>
+      <LinkContainer>
+        <Link href="/finance/income">
+          <p>Przychody</p>
+        </Link>
+        <Link href="/finance/expenses">
+          <p>Wydatki</p>
+        </Link>
+      </LinkContainer>
+      <LinkBack>
+        <Link href="/finance">
+          <p>Tylko Bilans</p>
+        </Link>
+      </LinkBack>
+
+      <StyledCurlyBracket>
+        <Exspan />
+      </StyledCurlyBracket>
+
       <h2>Wydatki</h2>
 
       {user ? (
@@ -128,89 +154,3 @@ export const Expenses = () => {
     </Container>
   );
 };
-const Container = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  div {
-    margin: 0 auto;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-
-    input {
-      border-radius: 5px;
-      border: none;
-      box-shadow: 0 0 3px white;
-      transition: 0.3s ease-in-out;
-      padding: 2px 5px;
-      &:hover {
-        background-color: rgba(0, 0, 0, 1);
-        box-shadow: 0 0 10px gray;
-      }
-    }
-
-    button {
-      width: 110px;
-      border-radius: 5px;
-      background-color: rgba(0, 0, 0, 0.3);
-      box-shadow: 0 0 3px white;
-      border: none;
-      transition: 0.3s ease-in-out;
-      &:hover {
-        background-color: rgba(0, 0, 0, 1);
-        box-shadow: 0 0 10px gray;
-      }
-    }
-
-    div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-  }
-
-  ul {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    text-align: left;
-
-    li {
-      width: 300px;
-      display: flex;
-      justify-content: flex-start;
-      justify-content: space-between;
-      border-bottom: 1px dashed;
-      padding: 5px;
-      border-radius: 5px;
-      transition: 0.2s ease-in-out;
-
-      &:hover {
-        box-shadow: 0 0 10px gray;
-      }
-    }
-
-    button {
-      padding: 2px 15px;
-      border-radius: 5px;
-      box-shadow: 0 0 3px white;
-      border: none;
-      transition: 0.3s ease-in-out;
-      &:hover {
-        background-color: rgba(0, 0, 0, 1);
-        box-shadow: 0 0 10px gray;
-      }
-    }
-  }
-`;

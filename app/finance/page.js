@@ -34,14 +34,12 @@ export default function FinancePage() {
               <Balance />
               <LinkContainer>
                 <Link href="/finance/income">
-                  <p>Income</p>
+                  <p>Przychody</p>
                 </Link>
                 <Link href="/finance/expenses">
-                  <p>Expenses</p>
+                  <p>Wydatki</p>
                 </Link>
               </LinkContainer>
-              {/* <Income />
-              <Expenses /> */}
             </div>
           ) : (
             <p>Nie masz dostępu do tego komponentu.</p>
@@ -53,20 +51,25 @@ export default function FinancePage() {
 }
 
 const LinkContainer = styled.div`
-margin: 0 auto;
-width: 90%;
-display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-a {
-  line-height: 0;
-      border-radius: 12px;
-      box-shadow: 0 0 3px white;
-      border: none;
-      transition: 0.3s ease-in-out;
-      &:hover {
-        background-color: rgba(0, 0, 0, 1);
-        box-shadow: 0 0 10px gray;
-      }
+  p {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 10px gray;
+  }
+
+  a {
+    line-height: 0;
+    /* border-radius: 12px; */
+    box-shadow: 0 0 3px white;
+    border: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: rgba(0, 0, 0, 1);
+      box-shadow: 0 0 10px gray;
     }
-  
-`
+  }
+`;

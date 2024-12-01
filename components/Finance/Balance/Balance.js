@@ -58,9 +58,13 @@ export const Balance = () => {
   }, []);
 
   const BalanceContainer = styled.div`
-  margin: 0px auto 30px;
-  width: 90%;
-  `
+    margin: 0px auto 30px;
+    width: 90%;
+     p {
+      box-shadow: 0 0 10px gray;
+
+    }
+  `;
 
   // Update balance whenever income or expenses change
   useEffect(() => {
