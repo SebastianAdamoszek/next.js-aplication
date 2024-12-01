@@ -45,7 +45,7 @@ export const ButtonAdd = styled.button`
 
   position: relative;
   top: -62px;
-  left: 100px;
+  left: 93px;
   &:hover {
     background-color: rgba(0, 0, 0, 1);
     box-shadow: 0 0 10px gray;
@@ -70,6 +70,7 @@ export const Container = styled.div`
     margin-left: 15px;
 
     input {
+      width: 160px;
       border-radius: 5px;
       border: none;
       box-shadow: 0 0 3px white;
