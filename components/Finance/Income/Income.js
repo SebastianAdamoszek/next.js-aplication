@@ -7,6 +7,7 @@ import {
   StyledCurlyBracket,
   Inspan,
   ButtonAdd,
+  ButtonsSort, Desc, Amount, DateSpan
 } from "../Balance/IncomeExpenses.styled";
 import {
   collection,
@@ -26,6 +27,7 @@ export const Income = () => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [user, setUser] = useState(null);
+  const [sortOrder, setSortOrder] = useState("date");
 
   // Funkcja do dodawania nowego przychodu do Firestore
   const addIncome = async (e) => {
@@ -93,6 +95,19 @@ export const Income = () => {
     return () => unsubscribe(); // Odsubskrybowanie od nasłuchiwania zmian autoryzacji
   }, []);
 
+  const sortedList = [...income].sort((a, b) => {
+    if (sortOrder === "date") {
+      return (
+        new Date(b.createdAt.seconds * 1000) -
+        new Date(a.createdAt.seconds * 1000)
+      );
+    }
+    if (sortOrder === "alphabetical") {
+      return a.description.localeCompare(b.description);
+    }
+    return 0;
+  });
+
   return (
     <Container>
       <LinkContainer>
@@ -135,13 +150,28 @@ export const Income = () => {
             </ButtonAdd>
           </form>
 
+          <ButtonsSort>
+            <button onClick={() => setSortOrder("alphabetical")}>abc...</button>
+            <button onClick={() => setSortOrder("date")}>data</button>
+          </ButtonsSort>
+
           <ul>
-            {income.map((inc) => (
-              <li key={inc.id}>
-                {inc.description}: {inc.amount} zł
-                <button onClick={() => deleteIncome(inc.id)}>Usuń</button>
-              </li>
-            ))}
+            {sortedList.map((inc) => {
+              const formattedDate = inc.createdAt
+                ? new Date(inc.createdAt.seconds * 1000).toLocaleDateString(
+                    "pl-PL"
+                  )
+                : "Brak daty";
+
+              return (
+                <li key={inc.id}>
+                  <Desc>{inc.description}-</Desc>
+                  <Amount>{inc.amount}zł</Amount>
+                  <DateSpan>{formattedDate}</DateSpan>
+                  <button onClick={() => deleteIncome(inc.id)}>Usuń</button>
+                </li>
+              );
+            })}
           </ul>
         </div>
       ) : (

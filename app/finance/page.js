@@ -4,8 +4,6 @@ import styled from "styled-components";
 import { auth } from "@/firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { Balance } from "@/components/Finance/Balance/Balance";
-import { Income } from "@/components/Finance/Income/Income";
-import { Expenses } from "@/components/Finance/Expenses/Expenses";
 import styles from "../page.module.css";
 import Link from "next/link";
 

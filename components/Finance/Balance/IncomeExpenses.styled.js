@@ -163,3 +163,39 @@ export const Inspan = styled.span`
   top: -27px;
   left: -50px;
 `;
+
+export const ButtonsSort = styled.div`
+  position: relative;
+  bottom: 40px;
+  left: 13px;
+
+  button {
+    margin-right: 105px;
+    padding: 2px 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px white;
+    border: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: rgba(0, 0, 0, 1);
+      box-shadow: 0 0 10px gray;
+    }
+  }
+`;
+export const Desc = styled.span`
+  white-space: nowrap;
+  overflow: scroll;
+  text-overflow: ellipsis;
+  width: 100px;
+ `;
+
+export const Amount = styled.span`
+width: 40px;
+overflow: hidden;
+text-align: right;
+`;
+export const DateSpan = styled.span`
+width: 40px;
+overflow: scroll;
+
+`;
