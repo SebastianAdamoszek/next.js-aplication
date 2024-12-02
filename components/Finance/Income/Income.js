@@ -165,7 +165,7 @@ export const Income = () => {
 
               return (
                 <li key={inc.id}>
-                  <Desc>{inc.description}-</Desc>
+                  <Desc>{inc.description}</Desc>
                   <Amount>{inc.amount}zł</Amount>
                   <DateSpan>{formattedDate}</DateSpan>
                   <button onClick={() => deleteIncome(inc.id)}>Usuń</button>

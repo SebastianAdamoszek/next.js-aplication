@@ -190,7 +190,7 @@ export const Desc = styled.span`
  `;
 
 export const Amount = styled.span`
-width: 40px;
+width: 50px;
 overflow: hidden;
 text-align: right;
 `;
