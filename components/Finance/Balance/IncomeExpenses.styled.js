@@ -167,10 +167,13 @@ export const Inspan = styled.span`
 export const ButtonsSort = styled.div`
   position: relative;
   bottom: 40px;
-  left: 13px;
-
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 225px;
+margin-left: 15px;
   button {
-    margin-right: 105px;
     padding: 2px 15px;
     border-radius: 5px;
     box-shadow: 0 0 3px white;
