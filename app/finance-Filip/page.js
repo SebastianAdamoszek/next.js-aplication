@@ -8,30 +8,21 @@ import styles from "../page.module.css";
 import Link from "next/link";
 
 export default function FinancePage() {
-  const [user, setUser] = useState(null);
-  
-  const allowedUserIdFilip = "ftp79NDgUygeP13s8RqolDoWwhu1"; 
-
-
   return (
     <div className={styles.main__next}>
       <div className={styles.description}>
         <div>
-          {user && user.uid === allowedUserIdFilip ? (
-            <div>
-              <Balance />
-              <LinkContainer>
-                <Link href="/finance/income">
-                  <p>Przychody</p>
-                </Link>
-                <Link href="/finance/expenses">
-                  <p>Wydatki</p>
-                </Link>
-              </LinkContainer>
-            </div>
-          ) : (
-            <p>Nie masz dostępu do tego komponentu.</p>
-          )}
+          <div>
+            <Balance />
+            <LinkContainer>
+              <Link href="/finance/income">
+                <p>Przychody</p>
+              </Link>
+              <Link href="/finance/expenses">
+                <p>Wydatki</p>
+              </Link>
+            </LinkContainer>
+          </div>
         </div>
       </div>
     </div>
