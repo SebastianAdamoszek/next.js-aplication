@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { auth } from "@/firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { useRouter } from "next/navigation";
 import { Balance } from "@/components/Finance/Balance/Balance";
 import styles from "../page.module.css";
 import Link from "next/link";
 
 export default function FinancePage() {
+  const router = useRouter();
   const [user, setUser] = useState(null);
   const allowedUserId = process.env.NEXT_PUBLIC_MY_ID;
   const allowedUserIdFilip = "ftp79NDgUygeP13s8RqolDoWwhu1";
