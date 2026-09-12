@@ -9,43 +9,15 @@ import Link from "next/link";
 
 export default function FinancePage() {
   const [user, setUser] = useState(null);
-  const allowedUserId = process.env.NEXT_PUBLIC_MY_ID;
-  const allowedUserIdFilip = "ftp79NDgUygeP13s8RqolDoWwhu1";
+  
+  const allowedUserIdFilip = "ftp79NDgUygeP13s8RqolDoWwhu1"; 
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     if (currentUser) {
-  //       setUser(currentUser);
-  //     } else {
-  //       setUser(null);
-  //     }
-  //   });
-
-  //   return () => unsubscribe();
-  // }, []);
-
-
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    if (currentUser) {
-      setUser(currentUser);
-
-      if (currentUser.uid === allowedUserIdFilip) {
-        router.push("/finance-Filip");
-      }
-    } else {
-      setUser(null);
-    }
-  });
-
-  return () => unsubscribe();
-}, [router, allowedUserIdFilip]);
 
   return (
     <div className={styles.main__next}>
       <div className={styles.description}>
         <div>
-          {user && user.uid === allowedUserId ? (
+          {user && user.uid === allowedUserIdFilip ? (
             <div>
               <Balance />
               <LinkContainer>
